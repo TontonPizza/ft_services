@@ -3,7 +3,6 @@ FROM alpine:3.12
 
 RUN apk --no-cache add nginx supervisor curl
 
-RUN apk add mysql mysql-client
 RUN apk add php7-fpm php-mbstring php7-openssl php7-json php7-dom php7-zip php7-mysqli \
 			php7-curl php7-session php7-opcache php7-gd php7-zlib  php7-common \
 			php7-iconv php7-xml php7-imap php7-cgi fcgi \
@@ -23,20 +22,16 @@ RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /var/log/nginx
 
 
-
 WORKDIR /var/www/html/
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
 RUN tar xf phpMyAdmin-4.9.1-english.tar.gz && rm -rf phpMyAdmin-4.9.1-english.tar.gz
 RUN mv phpMyAdmin-4.9.1-english phpmyadmin
 COPY ./src/config.inc.php phpmyadmin
 
-
 USER nobody
-
 
 WORKDIR /var/www/html
 COPY --chown=nobody src/ /var/www/html/
-
 
 EXPOSE 5050
 

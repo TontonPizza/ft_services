@@ -1,3 +1,3 @@
 à faire :
 
-vérifier le proxy
+verifier le proxy

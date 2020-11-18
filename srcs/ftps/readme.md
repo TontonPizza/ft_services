@@ -1,4 +1,4 @@
 à faire : 
 
-associer un volume
+download ok upload pas ok
 liveness ?

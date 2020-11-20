@@ -1009,7 +1009,7 @@ var image = (function (domGlobals) {
             base64: dataUrl.split(',')[1]
           });
           return uploader.upload(blobInfo).then(function (url) {
-            var src = rootControl.find('#src');
+            var src = rootControl.find('#srcs');
             src.value(url);
             rootControl.find('tabpanel')[0].activateTab(0);
             src.fire('change');
@@ -1108,7 +1108,7 @@ var image = (function (domGlobals) {
               if (!altCtrl.value() || e.lastControl && altCtrl.value() === e.lastControl.text()) {
                 altCtrl.value(e.control.text());
               }
-              win.find('#src').value(e.control.value()).fire('change');
+              win.find('#srcs').value(e.control.value()).fire('change');
             },
             onPostRender: function () {
               imageListCtrl = this;

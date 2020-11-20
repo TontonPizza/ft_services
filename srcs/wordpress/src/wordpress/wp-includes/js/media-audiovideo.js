@@ -851,7 +851,7 @@ VideoDetails = MediaDetails.extend(/** @lends wp.media.view.MediaFrame.VideoDeta
 
 			if ( -1 === content.indexOf( attachment.get( 'url' ) ) ) {
 				content += [
-					'<track srclang="en" label="English" kind="subtitles" src="',
+					'<track srclang="en" label="English" kind="subtitles" srcs="',
 					attachment.get( 'url' ),
 					'" />'
 				].join('');
@@ -1017,7 +1017,7 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 },/** @lends wp.media.view.MediaDetails */{
 	instances : 0,
 	/**
-	 * When multiple players in the DOM contain the same src, things get weird.
+	 * When multiple players in the DOM contain the same srcs, things get weird.
 	 *
 	 * @param {HTMLElement} elem
 	 * @return {HTMLElement}

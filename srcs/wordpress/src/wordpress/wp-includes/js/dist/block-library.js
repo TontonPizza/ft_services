@@ -3967,7 +3967,7 @@ function getRotationBetweenPoints(pointA, pointB) {
 }
 /**
  * Compute the output cropped area of the media in percentages and pixels.
- * x/y are the top-left coordinates on the src media
+ * x/y are the top-left coordinates on the srcs media
  */
 
 function computeCroppedArea(crop, mediaSize, cropSize, aspect, zoom, rotation, restrictPosition) {
@@ -9463,7 +9463,7 @@ function AudioEdit(_ref) {
   }
 
   function onSelectURL(newSrc) {
-    // Set the block's src from the edit component's state, and switch off
+    // Set the block's srcs from the edit component's state, and switch off
     // the editing UI.
     if (newSrc !== src) {
       // Check if there's an embed block that handles this URL.

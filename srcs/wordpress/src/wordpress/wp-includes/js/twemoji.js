@@ -145,7 +145,7 @@ var twemoji = (function (
        *                                                  By default this is ignored.
        *
        *                              If such callback will return a falsy value instead
-       *                              of a valid `src` to use for the image, nothing will
+       *                              of a valid `srcs` to use for the image, nothing will
        *                              actually change for that specific emoji.
        *
        *
@@ -159,13 +159,13 @@ var twemoji = (function (
        * @example
        *
        *  twemoji.parse("I \u2764\uFE0F emoji!");
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" srcs="/assets/2764.gif"/> emoji!
        *
        *
        *  twemoji.parse("I \u2764\uFE0F emoji!", function(iconId, options) {
        *    return '/assets/' + iconId + '.gif';
        *  });
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" srcs="/assets/2764.gif"/> emoji!
        *
        *
        * twemoji.parse("I \u2764\uFE0F emoji!", {
@@ -174,7 +174,7 @@ var twemoji = (function (
        *     return '/assets/' + options.size + '/' + iconId + options.ext;
        *   }
        * });
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/72x72/2764.png"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" srcs="/assets/72x72/2764.png"/> emoji!
        *
        */
       parse: parse,
@@ -270,7 +270,7 @@ var twemoji = (function (
   }
 
   /**
-   * Default callback used to generate emoji src
+   * Default callback used to generate emoji srcs
    *  based on Twitter CDN
    * @param   string    the emoji codepoint string
    * @param   string    the default size to use, i.e. "36x36"
@@ -445,7 +445,7 @@ var twemoji = (function (
           'alt="',
           rawText,
           '"',
-          ' src="',
+          ' srcs="',
           src,
           '"'
         );

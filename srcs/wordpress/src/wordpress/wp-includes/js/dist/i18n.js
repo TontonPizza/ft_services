@@ -347,7 +347,7 @@ __webpack_require__.d(__webpack_exports__, "isRTL", function() { return /* reexp
 var memize = __webpack_require__(60);
 var memize_default = /*#__PURE__*/__webpack_require__.n(memize);
 
-// EXTERNAL MODULE: ./node_modules/sprintf-js/src/sprintf.js
+// EXTERNAL MODULE: ./node_modules/sprintf-js/srcs/sprintf.js
 var sprintf = __webpack_require__(197);
 var sprintf_default = /*#__PURE__*/__webpack_require__.n(sprintf);
 

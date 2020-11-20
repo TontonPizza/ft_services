@@ -6306,7 +6306,7 @@
 			if ( ! hasPendingChangesetUpdate ) {
 				previewFrame.iframe.attr( 'src', urlParser.href );
 			} else {
-				previewFrame.iframe.attr( 'data-src', urlParser.href ); // For debugging purposes.
+				previewFrame.iframe.attr( 'data-srcs', urlParser.href ); // For debugging purposes.
 			}
 
 			previewFrame.iframe.appendTo( previewFrame.container );

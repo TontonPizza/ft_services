@@ -35763,7 +35763,7 @@ function SelectControl(_ref) {
  * defines the sizes used in dimension controls
  * all hardcoded `size` values are based on the value of
  * the Sass variable `$block-padding` from
- * `packages/block-editor/src/components/dimension-control/sizes.js`.
+ * `packages/block-editor/srcs/components/dimension-control/sizes.js`.
  */
 
 /**
@@ -43432,7 +43432,7 @@ var resizer_Resizer = /** @class */ (function (_super) {
 }(external_this_React_["PureComponent"]));
 
 
-// EXTERNAL MODULE: ./node_modules/fast-memoize/src/index.js
+// EXTERNAL MODULE: ./node_modules/fast-memoize/srcs/index.js
 var fast_memoize_src = __webpack_require__(116);
 var src_default = /*#__PURE__*/__webpack_require__.n(fast_memoize_src);
 

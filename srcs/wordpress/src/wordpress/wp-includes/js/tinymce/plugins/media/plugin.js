@@ -535,12 +535,12 @@ var media = (function () {
 
     var getIframeHtml = function (data) {
       var allowFullscreen = data.allowFullscreen ? ' allowFullscreen="1"' : '';
-      return '<iframe src="' + data.source1 + '" width="' + data.width + '" height="' + data.height + '"' + allowFullscreen + '></iframe>';
+      return '<iframe srcs="' + data.source1 + '" width="' + data.width + '" height="' + data.height + '"' + allowFullscreen + '></iframe>';
     };
     var getFlashHtml = function (data) {
       var html = '<object data="' + data.source1 + '" width="' + data.width + '" height="' + data.height + '" type="application/x-shockwave-flash">';
       if (data.poster) {
-        html += '<img src="' + data.poster + '" width="' + data.width + '" height="' + data.height + '" />';
+        html += '<img srcs="' + data.poster + '" width="' + data.width + '" height="' + data.height + '" />';
       }
       html += '</object>';
       return html;
@@ -549,18 +549,18 @@ var media = (function () {
       if (audioTemplateCallback) {
         return audioTemplateCallback(data);
       } else {
-        return '<audio controls="controls" src="' + data.source1 + '">' + (data.source2 ? '\n<source src="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</audio>';
+        return '<audio controls="controls" srcs="' + data.source1 + '">' + (data.source2 ? '\n<source srcs="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</audio>';
       }
     };
     var getVideoHtml = function (data, videoTemplateCallback) {
       if (videoTemplateCallback) {
         return videoTemplateCallback(data);
       } else {
-        return '<video width="' + data.width + '" height="' + data.height + '"' + (data.poster ? ' poster="' + data.poster + '"' : '') + ' controls="controls">\n' + '<source src="' + data.source1 + '"' + (data.source1mime ? ' type="' + data.source1mime + '"' : '') + ' />\n' + (data.source2 ? '<source src="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</video>';
+        return '<video width="' + data.width + '" height="' + data.height + '"' + (data.poster ? ' poster="' + data.poster + '"' : '') + ' controls="controls">\n' + '<source srcs="' + data.source1 + '"' + (data.source1mime ? ' type="' + data.source1mime + '"' : '') + ' />\n' + (data.source2 ? '<source srcs="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</video>';
       }
     };
     var getScriptHtml = function (data) {
-      return '<script src="' + data.source1 + '"></script>';
+      return '<script srcs="' + data.source1 + '"></script>';
     };
     var dataToHtml = function (editor, dataIn) {
       var data = global$2.extend({}, dataIn);

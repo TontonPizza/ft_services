@@ -860,11 +860,11 @@ module.exports = closest;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// EXTERNAL MODULE: ./node_modules/select/src/select.js
+// EXTERNAL MODULE: ./node_modules/select/srcs/select.js
 var src_select = __webpack_require__(0);
 var select_default = /*#__PURE__*/__webpack_require__.n(src_select);
 
-// CONCATENATED MODULE: ./src/clipboard-action.js
+// CONCATENATED MODULE: ./srcs/clipboard-action.js
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1126,11 +1126,11 @@ var clipboard_action_ClipboardAction = function () {
 var tiny_emitter = __webpack_require__(1);
 var tiny_emitter_default = /*#__PURE__*/__webpack_require__.n(tiny_emitter);
 
-// EXTERNAL MODULE: ./node_modules/good-listener/src/listen.js
+// EXTERNAL MODULE: ./node_modules/good-listener/srcs/listen.js
 var listen = __webpack_require__(2);
 var listen_default = /*#__PURE__*/__webpack_require__.n(listen);
 
-// CONCATENATED MODULE: ./src/clipboard.js
+// CONCATENATED MODULE: ./srcs/clipboard.js
 var clipboard_typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var clipboard_createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

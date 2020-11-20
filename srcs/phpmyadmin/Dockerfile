@@ -10,9 +10,9 @@ RUN apk add php7-fpm php-mbstring php7-openssl php7-json php7-dom php7-zip php7-
 
 RUN  rm /etc/nginx/conf.d/default.conf
 
-COPY src/nginx.conf /etc/nginx/nginx.conf
-COPY src/www.conf /etc/php7/php-fpm.d/www.conf
-COPY src/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY srcs/nginx.conf /etc/nginx/nginx.conf
+COPY srcs/www.conf /etc/php7/php-fpm.d/www.conf
+COPY srcs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN mkdir -p /var/www/html
 
@@ -26,14 +26,14 @@ WORKDIR /var/www/html/
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
 RUN tar xf phpMyAdmin-4.9.1-english.tar.gz && rm -rf phpMyAdmin-4.9.1-english.tar.gz
 RUN mv phpMyAdmin-4.9.1-english phpmyadmin
-COPY ./src/config.inc.php phpmyadmin
+COPY srcs/config.inc.php phpmyadmin
 
 USER nobody
 
 WORKDIR /var/www/html
-COPY --chown=nobody src/ /var/www/html/
+COPY --chown=nobody srcs/ /var/www/html/
 
-EXPOSE 5050
+EXPOSE 5000
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 

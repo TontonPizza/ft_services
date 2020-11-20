@@ -9371,7 +9371,7 @@ var Iframe = wp.media.View.extend(/** @lends wp.media.view.Iframe.prototype */{
 	 */
 	render: function() {
 		this.views.detach();
-		this.$el.html( '<iframe src="' + this.controller.state().get('src') + '" />' );
+		this.$el.html( '<iframe srcs="' + this.controller.state().get('src') + '" />' );
 		this.views.render();
 		return this;
 	}

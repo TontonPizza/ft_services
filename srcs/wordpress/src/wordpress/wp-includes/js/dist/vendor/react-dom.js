@@ -3526,7 +3526,7 @@ var ReactControlledValuePropTypes = {
   };
 }
 
-// TODO: direct imports like some-package/src/* are bad. Fix me.
+// TODO: direct imports like some-package/srcs/* are bad. Fix me.
 var didWarnValueDefaultValue = false;
 var didWarnCheckedDefaultChecked = false;
 var didWarnControlledToUncontrolled = false;
@@ -6573,7 +6573,7 @@ function isInDocument(node) {
 function isSameOriginFrame(iframe) {
   try {
     // Accessing the contentDocument of a HTMLIframeElement can cause the browser
-    // to throw, e.g. if it has a cross-origin src attribute.
+    // to throw, e.g. if it has a cross-origin srcs attribute.
     // Safari will show an error in the console when the access results in "Blocked a frame with origin". e.g:
     // iframe.contentDocument.defaultView;
     // A safety way is to access one of the cross origin properties: Window or Location
@@ -6974,7 +6974,7 @@ function getHostProps$1(element, props) {
   return hostProps;
 }
 
-// TODO: direct imports like some-package/src/* are bad. Fix me.
+// TODO: direct imports like some-package/srcs/* are bad. Fix me.
 var didWarnValueDefaultValue$1 = void 0;
 
 {
@@ -7858,7 +7858,7 @@ function isCustomComponent(tagName, props) {
     case 'annotation-xml':
     case 'color-profile':
     case 'font-face':
-    case 'font-face-src':
+    case 'font-face-srcs':
     case 'font-face-uri':
     case 'font-face-format':
     case 'font-face-name':
@@ -8666,7 +8666,7 @@ function validateProperties$2(type, props, canUseEventSystem) {
   warnUnknownProperties(type, props, canUseEventSystem);
 }
 
-// TODO: direct imports like some-package/src/* are bad. Fix me.
+// TODO: direct imports like some-package/srcs/* are bad. Fix me.
 var didWarnInvalidHydration = false;
 var didWarnShadyDOM = false;
 
@@ -9646,7 +9646,7 @@ if (enableFlareAPI) {
   setListenToResponderEventTypes(listenToEventResponderEventTypes);
 }
 
-// TODO: direct imports like some-package/src/* are bad. Fix me.
+// TODO: direct imports like some-package/srcs/* are bad. Fix me.
 var validateDOMNesting = function () {};
 var updatedAncestorInfo = function () {};
 

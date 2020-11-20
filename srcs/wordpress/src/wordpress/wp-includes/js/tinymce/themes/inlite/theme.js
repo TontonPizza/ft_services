@@ -3849,7 +3849,7 @@ var inlite = (function (domGlobals) {
           headerHtml = '<div id="' + id + '-head" class="' + prefix + 'window-head">' + '<div id="' + id + '-title" class="' + prefix + 'title">' + self.encode(settings.title) + '</div>' + '<div id="' + id + '-dragh" class="' + prefix + 'dragh"></div>' + '<button type="button" class="' + prefix + 'close" aria-hidden="true">' + '<i class="mce-ico mce-i-remove"></i>' + '</button>' + '</div>';
         }
         if (settings.url) {
-          html = '<iframe src="' + settings.url + '" tabindex="-1"></iframe>';
+          html = '<iframe srcs="' + settings.url + '" tabindex="-1"></iframe>';
         }
         if (typeof html === 'undefined') {
           html = layout.renderHtml(self);
@@ -8286,7 +8286,7 @@ var inlite = (function (domGlobals) {
         var self = this;
         self.classes.add('iframe');
         self.canFocus = false;
-        return '<iframe id="' + self._id + '" class="' + self.classes + '" tabindex="-1" src="' + (self.settings.url || 'javascript:\'\'') + '" frameborder="0"></iframe>';
+        return '<iframe id="' + self._id + '" class="' + self.classes + '" tabindex="-1" srcs="' + (self.settings.url || 'javascript:\'\'') + '" frameborder="0"></iframe>';
       },
       src: function (src) {
         this.getEl().src = src;

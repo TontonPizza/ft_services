@@ -98,7 +98,7 @@
 		}
 	}
 
-// Included from: src/javascript/core/utils/Basic.js
+// Included from: srcs/javascript/core/utils/Basic.js
 
 /**
  * Basic.js
@@ -493,7 +493,7 @@ define('moxie/core/utils/Basic', [], function() {
 	};
 });
 
-// Included from: src/javascript/core/utils/Env.js
+// Included from: srcs/javascript/core/utils/Env.js
 
 /**
  * Env.js
@@ -1198,7 +1198,7 @@ define("moxie/core/utils/Env", [
 	return Env;
 });
 
-// Included from: src/javascript/core/I18n.js
+// Included from: srcs/javascript/core/I18n.js
 
 /**
  * I18n.js
@@ -1263,7 +1263,7 @@ define("moxie/core/I18n", [
 	};
 });
 
-// Included from: src/javascript/core/utils/Mime.js
+// Included from: srcs/javascript/core/utils/Mime.js
 
 /**
  * Mime.js
@@ -1458,7 +1458,7 @@ define("moxie/core/utils/Mime", [
 	return Mime;
 });
 
-// Included from: src/javascript/core/utils/Dom.js
+// Included from: srcs/javascript/core/utils/Dom.js
 
 /**
  * Dom.js
@@ -1641,7 +1641,7 @@ define('moxie/core/utils/Dom', ['moxie/core/utils/Env'], function(Env) {
 	};
 });
 
-// Included from: src/javascript/core/Exceptions.js
+// Included from: srcs/javascript/core/Exceptions.js
 
 /**
  * Exceptions.js
@@ -1800,7 +1800,7 @@ define('moxie/core/Exceptions', [
 	};
 });
 
-// Included from: src/javascript/core/EventTarget.js
+// Included from: srcs/javascript/core/EventTarget.js
 
 /**
  * EventTarget.js
@@ -2104,7 +2104,7 @@ define('moxie/core/EventTarget', [
 	return EventTarget;
 });
 
-// Included from: src/javascript/runtime/Runtime.js
+// Included from: srcs/javascript/runtime/Runtime.js
 
 /**
  * Runtime.js
@@ -2707,7 +2707,7 @@ define('moxie/runtime/Runtime', [
 	return Runtime;
 });
 
-// Included from: src/javascript/runtime/RuntimeClient.js
+// Included from: srcs/javascript/runtime/RuntimeClient.js
 
 /**
  * RuntimeClient.js
@@ -2883,7 +2883,7 @@ define('moxie/runtime/RuntimeClient', [
 
 });
 
-// Included from: src/javascript/file/FileInput.js
+// Included from: srcs/javascript/file/FileInput.js
 
 /**
  * FileInput.js
@@ -3212,7 +3212,7 @@ define('moxie/file/FileInput', [
 	return FileInput;
 });
 
-// Included from: src/javascript/core/utils/Encode.js
+// Included from: srcs/javascript/core/utils/Encode.js
 
 /**
  * Encode.js
@@ -3392,7 +3392,7 @@ define('moxie/core/utils/Encode', [], function() {
 	};
 });
 
-// Included from: src/javascript/file/Blob.js
+// Included from: srcs/javascript/file/Blob.js
 
 /**
  * Blob.js
@@ -3570,7 +3570,7 @@ define('moxie/file/Blob', [
 	return Blob;
 });
 
-// Included from: src/javascript/file/File.js
+// Included from: srcs/javascript/file/File.js
 
 /**
  * File.js
@@ -3655,7 +3655,7 @@ define('moxie/file/File', [
 	return File;
 });
 
-// Included from: src/javascript/file/FileDrop.js
+// Included from: srcs/javascript/file/FileDrop.js
 
 /**
  * FileDrop.js
@@ -3831,7 +3831,7 @@ define('moxie/file/FileDrop', [
 	return FileDrop;
 });
 
-// Included from: src/javascript/file/FileReader.js
+// Included from: srcs/javascript/file/FileReader.js
 
 /**
  * FileReader.js
@@ -4106,7 +4106,7 @@ define('moxie/file/FileReader', [
 	return FileReader;
 });
 
-// Included from: src/javascript/core/utils/Url.js
+// Included from: srcs/javascript/core/utils/Url.js
 
 /**
  * Url.js
@@ -4233,7 +4233,7 @@ define('moxie/core/utils/Url', [], function() {
 	};
 });
 
-// Included from: src/javascript/runtime/RuntimeTarget.js
+// Included from: srcs/javascript/runtime/RuntimeTarget.js
 
 /**
  * RuntimeTarget.js
@@ -4275,7 +4275,7 @@ define('moxie/runtime/RuntimeTarget', [
 	return RuntimeTarget;
 });
 
-// Included from: src/javascript/file/FileReaderSync.js
+// Included from: srcs/javascript/file/FileReaderSync.js
 
 /**
  * FileReaderSync.js
@@ -4348,7 +4348,7 @@ define('moxie/file/FileReaderSync', [
 	};
 });
 
-// Included from: src/javascript/xhr/FormData.js
+// Included from: srcs/javascript/xhr/FormData.js
 
 /**
  * FormData.js
@@ -4467,7 +4467,7 @@ define("moxie/xhr/FormData", [
 	return FormData;
 });
 
-// Included from: src/javascript/xhr/XMLHttpRequest.js
+// Included from: srcs/javascript/xhr/XMLHttpRequest.js
 
 /**
  * XMLHttpRequest.js
@@ -5438,7 +5438,7 @@ define("moxie/xhr/XMLHttpRequest", [
 	return XMLHttpRequest;
 });
 
-// Included from: src/javascript/runtime/Transporter.js
+// Included from: srcs/javascript/runtime/Transporter.js
 
 /**
  * Transporter.js
@@ -5575,7 +5575,7 @@ define("moxie/runtime/Transporter", [
 	return Transporter;
 });
 
-// Included from: src/javascript/image/Image.js
+// Included from: srcs/javascript/image/Image.js
 
 /**
  * Image.js
@@ -5923,7 +5923,7 @@ define("moxie/image/Image", [
 					}
 
 					if (Env.can('use_data_uri_of', dataUrl.length)) {
-						el.innerHTML = '<img src="' + dataUrl + '" width="' + img.width + '" height="' + img.height + '" />';
+						el.innerHTML = '<img srcs="' + dataUrl + '" width="' + img.width + '" height="' + img.height + '" />';
 						img.destroy();
 						self.trigger('embedded');
 					} else {
@@ -6174,7 +6174,7 @@ define("moxie/image/Image", [
 	return Image;
 });
 
-// Included from: src/javascript/runtime/html5/Runtime.js
+// Included from: srcs/javascript/runtime/html5/Runtime.js
 
 /**
  * Runtime.js
@@ -6299,7 +6299,7 @@ define("moxie/runtime/html5/Runtime", [
 	return extensions;
 });
 
-// Included from: src/javascript/core/utils/Events.js
+// Included from: srcs/javascript/core/utils/Events.js
 
 /**
  * Events.js
@@ -6472,7 +6472,7 @@ define('moxie/core/utils/Events', [
 	};
 });
 
-// Included from: src/javascript/runtime/html5/file/FileInput.js
+// Included from: srcs/javascript/runtime/html5/file/FileInput.js
 
 /**
  * FileInput.js
@@ -6653,7 +6653,7 @@ define("moxie/runtime/html5/file/FileInput", [
 	return (extensions.FileInput = FileInput);
 });
 
-// Included from: src/javascript/runtime/html5/file/Blob.js
+// Included from: srcs/javascript/runtime/html5/file/Blob.js
 
 /**
  * Blob.js
@@ -6702,7 +6702,7 @@ define("moxie/runtime/html5/file/Blob", [
 	return (extensions.Blob = HTML5Blob);
 });
 
-// Included from: src/javascript/runtime/html5/file/FileDrop.js
+// Included from: srcs/javascript/runtime/html5/file/FileDrop.js
 
 /**
  * FileDrop.js
@@ -6905,7 +6905,7 @@ define("moxie/runtime/html5/file/FileDrop", [
 	return (extensions.FileDrop = FileDrop);
 });
 
-// Included from: src/javascript/runtime/html5/file/FileReader.js
+// Included from: srcs/javascript/runtime/html5/file/FileReader.js
 
 /**
  * FileReader.js
@@ -6985,7 +6985,7 @@ define("moxie/runtime/html5/file/FileReader", [
 	return (extensions.FileReader = FileReader);
 });
 
-// Included from: src/javascript/runtime/html5/xhr/XMLHttpRequest.js
+// Included from: srcs/javascript/runtime/html5/xhr/XMLHttpRequest.js
 
 /**
  * XMLHttpRequest.js
@@ -7360,7 +7360,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 	return (extensions.XMLHttpRequest = XMLHttpRequest);
 });
 
-// Included from: src/javascript/runtime/html5/utils/BinaryReader.js
+// Included from: srcs/javascript/runtime/html5/utils/BinaryReader.js
 
 /**
  * BinaryReader.js
@@ -7580,7 +7580,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 	return BinaryReader;
 });
 
-// Included from: src/javascript/runtime/html5/image/JPEGHeaders.js
+// Included from: srcs/javascript/runtime/html5/image/JPEGHeaders.js
 
 /**
  * JPEGHeaders.js
@@ -7724,7 +7724,7 @@ define("moxie/runtime/html5/image/JPEGHeaders", [
 	};
 });
 
-// Included from: src/javascript/runtime/html5/image/ExifParser.js
+// Included from: srcs/javascript/runtime/html5/image/ExifParser.js
 
 /**
  * ExifParser.js
@@ -8213,7 +8213,7 @@ define("moxie/runtime/html5/image/ExifParser", [
 	return ExifParser;
 });
 
-// Included from: src/javascript/runtime/html5/image/JPEG.js
+// Included from: srcs/javascript/runtime/html5/image/JPEG.js
 
 /**
  * JPEG.js
@@ -8373,7 +8373,7 @@ define("moxie/runtime/html5/image/JPEG", [
 	return JPEG;
 });
 
-// Included from: src/javascript/runtime/html5/image/PNG.js
+// Included from: srcs/javascript/runtime/html5/image/PNG.js
 
 /**
  * PNG.js
@@ -8475,7 +8475,7 @@ define("moxie/runtime/html5/image/PNG", [
 	return PNG;
 });
 
-// Included from: src/javascript/runtime/html5/image/ImageInfo.js
+// Included from: srcs/javascript/runtime/html5/image/ImageInfo.js
 
 /**
  * ImageInfo.js
@@ -8611,7 +8611,7 @@ define("moxie/runtime/html5/image/ImageInfo", [
 	};
 });
 
-// Included from: src/javascript/runtime/html5/image/MegaPixel.js
+// Included from: srcs/javascript/runtime/html5/image/MegaPixel.js
 
 /**
 (The MIT License)
@@ -8748,7 +8748,7 @@ define("moxie/runtime/html5/image/MegaPixel", [], function() {
 	};
 });
 
-// Included from: src/javascript/runtime/html5/image/Image.js
+// Included from: srcs/javascript/runtime/html5/image/Image.js
 
 /**
  * Image.js
@@ -9207,7 +9207,7 @@ define("moxie/runtime/silverlight/Runtime", [
 	return {};
 });
 
-// Included from: src/javascript/runtime/html4/Runtime.js
+// Included from: srcs/javascript/runtime/html4/Runtime.js
 
 /**
  * Runtime.js
@@ -9314,7 +9314,7 @@ define("moxie/runtime/html4/Runtime", [
 	return extensions;
 });
 
-// Included from: src/javascript/runtime/html4/file/FileInput.js
+// Included from: srcs/javascript/runtime/html4/file/FileInput.js
 
 /**
  * FileInput.js
@@ -9552,7 +9552,7 @@ define("moxie/runtime/html4/file/FileInput", [
 	return (extensions.FileInput = FileInput);
 });
 
-// Included from: src/javascript/runtime/html4/file/FileReader.js
+// Included from: srcs/javascript/runtime/html4/file/FileReader.js
 
 /**
  * FileReader.js
@@ -9575,7 +9575,7 @@ define("moxie/runtime/html4/file/FileReader", [
 	return (extensions.FileReader = FileReader);
 });
 
-// Included from: src/javascript/runtime/html4/xhr/XMLHttpRequest.js
+// Included from: srcs/javascript/runtime/html4/xhr/XMLHttpRequest.js
 
 /**
  * XMLHttpRequest.js
@@ -9667,7 +9667,7 @@ define("moxie/runtime/html4/xhr/XMLHttpRequest", [
 					;
 
 					// IE 6 won't be able to set the name using setAttribute or iframe.name
-					temp.innerHTML = '<iframe id="' + uid + '_iframe" name="' + uid + '_iframe" src="javascript:&quot;&quot;" style="display:none"></iframe>';
+					temp.innerHTML = '<iframe id="' + uid + '_iframe" name="' + uid + '_iframe" srcs="javascript:&quot;&quot;" style="display:none"></iframe>';
 					_iframe = temp.firstChild;
 					container.appendChild(_iframe);
 
@@ -9824,7 +9824,7 @@ define("moxie/runtime/html4/xhr/XMLHttpRequest", [
 	return (extensions.XMLHttpRequest = XMLHttpRequest);
 });
 
-// Included from: src/javascript/runtime/html4/image/Image.js
+// Included from: srcs/javascript/runtime/html4/image/Image.js
 
 /**
  * Image.js

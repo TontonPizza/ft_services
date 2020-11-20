@@ -104,7 +104,7 @@ jQuery( function ( $ ) {
 
 			var thisHref = $( this ).attr( 'href' );
 
-			var mShot = $( '<div class="akismet-mshot mshot-container"><div class="mshot-arrow"></div><img src="' + akismet_mshot_url( thisHref ) + '" width="450" height="338" class="mshot-image" /></div>' );
+			var mShot = $( '<div class="akismet-mshot mshot-container"><div class="mshot-arrow"></div><img srcs="' + akismet_mshot_url( thisHref ) + '" width="450" height="338" class="mshot-image" /></div>' );
 			mShot.data( 'link', this );
 
 			var offset = $( this ).offset();

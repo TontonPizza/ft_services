@@ -13719,7 +13719,7 @@ function provider_isNativeReflectConstruct() { if (typeof Reflect === "undefined
 /**
  * Fetches link suggestions from the API. This function is an exact copy of a function found at:
  *
- * wordpress/editor/src/components/provider/index.js
+ * wordpress/editor/srcs/components/provider/index.js
  *
  * It seems like there is no suitable package to import this from. Ideally it would be either part of core-data.
  * Until we refactor it, just copying the code is the simplest solution.

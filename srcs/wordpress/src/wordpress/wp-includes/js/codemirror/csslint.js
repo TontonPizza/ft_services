@@ -8378,7 +8378,7 @@ CSSLint.addRule({
             if (propertyName === "src") {
                 var regex = /^\s?url\(['"].+\.eot\?.*['"]\)\s*format\(['"]embedded-opentype['"]\).*$/i;
 
-                // We need to handle the advanced syntax with two src properties
+                // We need to handle the advanced syntax with two srcs properties
                 if (!value.match(regex) && firstSrc) {
                     ruleFailed = true;
                     firstSrc = false;

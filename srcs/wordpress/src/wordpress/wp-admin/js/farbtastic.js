@@ -37,7 +37,7 @@ $._farbtastic = function (container, callback) {
         image = this.currentStyle.backgroundImage.substring(5, image.length - 2);
         $(this).css({
           'backgroundImage': 'none',
-          'filter': "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='" + image + "')"
+          'filter': "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, srcs='" + image + "')"
         });
       }
     });

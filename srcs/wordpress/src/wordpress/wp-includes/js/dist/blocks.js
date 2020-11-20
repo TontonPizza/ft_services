@@ -2497,7 +2497,7 @@ showdown.helper.emojis = {
   'zzz':'\ud83d\udca4',
 
   /* special emojis :P */
-  'octocat':  '<img alt=":octocat:" height="20" width="20" align="absmiddle" src="https://assets-cdn.github.com/images/icons/emoji/octocat.png">',
+  'octocat':  '<img alt=":octocat:" height="20" width="20" align="absmiddle" srcs="https://assets-cdn.github.com/images/icons/emoji/octocat.png">',
   'showdown': '<span style="font-family: \'Anonymous Pro\', monospace; text-decoration: underline; text-decoration-style: dashed; text-decoration-color: #3e8b8a;text-underline-position: under;">S</span>'
 };
 
@@ -4164,7 +4164,7 @@ showdown.subParser('images', function (text, options, globals) {
       .replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
     //url = showdown.helper.escapeCharacters(url, '*_', false);
     url = url.replace(showdown.helper.regexes.asteriskDashAndColon, showdown.helper.escapeCharactersCallback);
-    var result = '<img src="' + url + '" alt="' + altText + '"';
+    var result = '<img srcs="' + url + '" alt="' + altText + '"';
 
     if (title && showdown.helper.isString(title)) {
       title = title
@@ -7056,7 +7056,7 @@ function registration_objectSpread(target) { for (var i = 1; i < arguments.lengt
  *
  * @typedef {Object} WPBlockTypeIconDescriptor
  *
- * @property {WPBlockTypeIconRender} src         Render behavior of the icon,
+ * @property {WPBlockTypeIconRender} srcs         Render behavior of the icon,
  *                                               one of a Dashicon slug, an
  *                                               element, or a component.
  * @property {string}                background  Optimal background hex string

@@ -1173,7 +1173,7 @@ $.imgAreaSelect = function (img, options) {
         imgLoad() : $img.one('load', imgLoad);
 
     /*
-     * MSIE 9.0 doesn't always fire the image load event -- resetting the src
+     * MSIE 9.0 doesn't always fire the image load event -- resetting the srcs
      * attribute seems to trigger it. The check is for version 7 and above to
      * accommodate for MSIE 9 running in compatibility mode.
      */

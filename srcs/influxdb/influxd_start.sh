@@ -1,0 +1,2 @@
+influxd &
+sleep 10

@@ -30,7 +30,7 @@ $themes_allowedtags = array(
 	'h5'      => array(),
 	'h6'      => array(),
 	'img'     => array(
-		'src'   => array(),
+		'srcs'   => array(),
 		'class' => array(),
 		'alt'   => array(),
 	),

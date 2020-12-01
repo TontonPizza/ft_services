@@ -50,7 +50,7 @@ if ( isset( $_REQUEST['attachment_id'] ) && intval( $_REQUEST['attachment_id'] )
 		case 3:
 			$thumb_url = wp_get_attachment_image_src( $id, 'thumbnail', true );
 			if ( $thumb_url ) {
-				echo '<img class="pinkynail" src="' . esc_url( $thumb_url[0] ) . '" alt="" />';
+				echo '<img class="pinkynail" srcs="' . esc_url( $thumb_url[0] ) . '" alt="" />';
 			}
 			if ( current_user_can( 'edit_post', $id ) ) {
 				echo '<a class="edit-attachment" href="' . esc_url( get_edit_post_link( $id ) ) . '" target="_blank">' . _x( 'Edit', 'media item' ) . '</a>';

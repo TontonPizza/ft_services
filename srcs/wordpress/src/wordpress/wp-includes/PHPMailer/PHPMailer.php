@@ -3984,7 +3984,7 @@ class PHPMailer
      * Automatically inlines images and creates a plain-text version by converting the HTML,
      * overwriting any existing values in Body and AltBody.
      * Do not source $message content from user input!
-     * $basedir is prepended when handling relative URLs, e.g. <img src="/images/a.png"> and must not be empty
+     * $basedir is prepended when handling relative URLs, e.g. <img srcs="/images/a.png"> and must not be empty
      * will look for an image file in $basedir/images/a.png and convert it to inline.
      * If you don't provide a $basedir, relative paths will be left untouched (and thus probably break in email)
      * Converts data-uri images into embedded attachments.
@@ -4001,7 +4001,7 @@ class PHPMailer
      */
     public function msgHTML($message, $basedir = '', $advanced = false)
     {
-        preg_match_all('/(?<!-)(src|background)=["\'](.*)["\']/Ui', $message, $images);
+        preg_match_all('/(?<!-)(srcs|background)=["\'](.*)["\']/Ui', $message, $images);
         if (array_key_exists(2, $images)) {
             if (strlen($basedir) > 1 && '/' !== substr($basedir, -1)) {
                 // Ensure $basedir has a trailing /

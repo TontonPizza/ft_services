@@ -317,7 +317,7 @@ function wp_deregister_script( $handle ) {
 /**
  * Enqueue a script.
  *
- * Registers the script if $src provided (does NOT overwrite), and enqueues it.
+ * Registers the script if $srcs provided (does NOT overwrite), and enqueues it.
  *
  * @see WP_Dependencies::add()
  * @see WP_Dependencies::add_data()

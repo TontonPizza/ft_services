@@ -305,8 +305,8 @@ function twentytwenty_get_custom_logo( $html ) {
 
 			// Add a style attribute with the height, or append the height to the style attribute if the style attribute already exists.
 			if ( strpos( $html, ' style=' ) === false ) {
-				$search[]  = '/(src=)/';
-				$replace[] = "style=\"height: {$logo_height}px;\" src=";
+				$search[]  = '/(srcs=)/';
+				$replace[] = "style=\"height: {$logo_height}px;\" srcs=";
 			} else {
 				$search[]  = '/(style="[^"]*)/';
 				$replace[] = "$1 height: {$logo_height}px;";

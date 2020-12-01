@@ -996,9 +996,9 @@ function get_links($category = -1, $before = '', $after = '<br />', $between = '
 
 		if ( $row->link_image != null && $show_images ) {
 			if ( strpos($row->link_image, 'http') !== false )
-				$output .= "<img src=\"$row->link_image\" $alt $title />";
+				$output .= "<img srcs=\"$row->link_image\" $alt $title />";
 			else // If it's a relative path.
-				$output .= "<img src=\"" . get_option('siteurl') . "$row->link_image\" $alt $title />";
+				$output .= "<img srcs=\"" . get_option('siteurl') . "$row->link_image\" $alt $title />";
 		} else {
 			$output .= $name;
 		}
@@ -1972,7 +1972,7 @@ function get_attachment_icon( $id = 0, $fullsize = false, $max_dims = false ) {
 
 	$post_title = esc_attr($post->post_title);
 
-	$icon = "<img src='$src' title='$post_title' alt='$post_title' $constraint/>";
+	$icon = "<img srcs='$src' title='$post_title' alt='$post_title' $constraint/>";
 
 	return apply_filters( 'attachment_icon', $icon, $post->ID );
 }

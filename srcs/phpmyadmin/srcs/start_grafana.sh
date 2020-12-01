@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+cd /grafana-7.0.3/bin/
+./grafana-server &

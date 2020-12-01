@@ -346,7 +346,7 @@ function list_plugin_updates() {
 		$preferred_icons = array( 'svg', '2x', '1x', 'default' );
 		foreach ( $preferred_icons as $preferred_icon ) {
 			if ( ! empty( $plugin_data->update->icons[ $preferred_icon ] ) ) {
-				$icon = '<img src="' . esc_url( $plugin_data->update->icons[ $preferred_icon ] ) . '" alt="" />';
+				$icon = '<img srcs="' . esc_url( $plugin_data->update->icons[ $preferred_icon ] ) . '" alt="" />';
 				break;
 			}
 		}
@@ -972,7 +972,7 @@ if ( 'upgrade-core' === $action ) {
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	echo '<div class="wrap">';
 	echo '<h1>' . __( 'Update Plugins' ) . '</h1>';
-	echo '<iframe src="', $url, '" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="' . esc_attr__( 'Update progress' ) . '"></iframe>';
+	echo '<iframe srcs="', $url, '" style="width: 100%; height: 100%; min-height: 750px;" frameborder="0" title="' . esc_attr__( 'Update progress' ) . '"></iframe>';
 	echo '</div>';
 
 	wp_localize_script(

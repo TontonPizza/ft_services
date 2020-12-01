@@ -424,7 +424,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		if (
 			! $image_meta ||
 			! $image_file ||
-			! wp_image_file_matches_image_meta( $request['src'], $image_meta, $attachment_id )
+			! wp_image_file_matches_image_meta( $request['srcs'], $image_meta, $attachment_id )
 		) {
 			return new WP_Error(
 				'rest_unknown_attachment',
@@ -465,7 +465,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 		}
 
 		/*
-		 * If the file doesn't exist, attempt a URL fopen on the src link.
+		 * If the file doesn't exist, attempt a URL fopen on the srcs link.
 		 * This can occur with certain file replication plugins.
 		 * Keep the original file path to get a modified name later.
 		 */
@@ -1313,7 +1313,7 @@ class WP_REST_Attachments_Controller extends WP_REST_Posts_Controller {
 				'minimum'     => 0,
 				'maximum'     => 100,
 			),
-			'src'      => array(
+			'srcs'      => array(
 				'description' => __( 'URL to the edited image file.' ),
 				'type'        => 'string',
 				'format'      => 'uri',

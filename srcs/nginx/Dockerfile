@@ -3,6 +3,7 @@ FROM alpine:3.6
 RUN apk update
 RUN apk upgrade
 RUN apk add openssl
+RUN apk add supervisor
 
 
 RUN apk add --update nginx && rm -rf /var/cache/apk/*
@@ -15,7 +16,12 @@ COPY ./srcs/nginx_conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./srcs/nginx_conf/default.conf /etc/nginx/conf.d/default.conf
 COPY ./srcs/sites /sites
 
+COPY ./srcs/telegraf.conf /etc/telegraf/.
+COPY ./srcs/telegraf-1.6.3-static_linux_amd64.tar.gz .
+RUN tar xf telegraf-1.6.3-static_linux_amd64.tar.gz && \
+	rm telegraf-1.6.3-static_linux_amd64.tar.gz
+ADD ./srcs/supervisor.conf /etc/supervisor.conf
 
 EXPOSE 22 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]

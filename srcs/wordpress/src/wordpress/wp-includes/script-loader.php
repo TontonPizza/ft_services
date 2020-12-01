@@ -52,7 +52,7 @@ function wp_register_tinymce_scripts( $scripts, $force_uncompressed = false ) {
 	$compressed = $compress_scripts && $concatenate_scripts && isset( $_SERVER['HTTP_ACCEPT_ENCODING'] )
 		&& false !== stripos( $_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip' ) && ! $force_uncompressed;
 
-	// Load tinymce.js when running from /src, otherwise load wp-tinymce.js.gz (in production)
+	// Load tinymce.js when running from /srcs, otherwise load wp-tinymce.js.gz (in production)
 	// or tinymce.min.js (when SCRIPT_DEBUG is true).
 	if ( $compressed ) {
 		$scripts->add( 'wp-tinymce', includes_url( 'js/tinymce/' ) . 'wp-tinymce.js', array(), $tinymce_version );
@@ -210,7 +210,7 @@ function wp_get_script_polyfill( $scripts, $tests ) {
 			 * at the `document.write`. Its caveat of synchronous mid-stream
 			 * blocking write is exactly the behavior we need though.
 			 */
-			'document.write( \'<script src="' .
+			'document.write( \'<script srcs="' .
 			$src .
 			'"></scr\' + \'ipt>\' );'
 		);
@@ -549,7 +549,7 @@ function wp_scripts_get_suffix( $type = '' ) {
 		// Include an unmodified $wp_version.
 		require ABSPATH . WPINC . '/version.php';
 
-		$develop_src = false !== strpos( $wp_version, '-src' );
+		$develop_src = false !== strpos( $wp_version, '-srcs' );
 
 		if ( ! defined( 'SCRIPT_DEBUG' ) ) {
 			define( 'SCRIPT_DEBUG', $develop_src );
@@ -1023,7 +1023,7 @@ function wp_default_scripts( $scripts ) {
 		'zxcvbn-async',
 		'_zxcvbnSettings',
 		array(
-			'src' => empty( $guessed_url ) ? includes_url( '/js/zxcvbn.min.js' ) : $scripts->base_url . '/wp-includes/js/zxcvbn.min.js',
+			'srcs' => empty( $guessed_url ) ? includes_url( '/js/zxcvbn.min.js' ) : $scripts->base_url . '/wp-includes/js/zxcvbn.min.js',
 		)
 	);
 
@@ -1327,7 +1327,7 @@ function wp_default_styles( $styles ) {
 	require ABSPATH . WPINC . '/version.php';
 
 	if ( ! defined( 'SCRIPT_DEBUG' ) ) {
-		define( 'SCRIPT_DEBUG', false !== strpos( $wp_version, '-src' ) );
+		define( 'SCRIPT_DEBUG', false !== strpos( $wp_version, '-srcs' ) );
 	}
 
 	$guessurl = site_url();
@@ -1768,7 +1768,7 @@ function wp_localize_community_events() {
  * color and key for the array. The value for the color key is an object with
  * a 'url' parameter that has the URL path to the CSS file.
  *
- * The query from $src parameter will be appended to the URL that is given from
+ * The query from $srcs parameter will be appended to the URL that is given from
  * the $_wp_admin_css_colors array value URL.
  *
  * @since 2.6.0
@@ -1926,7 +1926,7 @@ function _print_scripts() {
 		}
 
 		$src = $wp_scripts->base_url . "/wp-admin/load-scripts.php?c={$zip}" . $concatenated . '&ver=' . $wp_scripts->default_version;
-		echo "<script{$type_attr} src='" . esc_attr( $src ) . "'></script>\n";
+		echo "<script{$type_attr} srcs='" . esc_attr( $src ) . "'></script>\n";
 	}
 
 	if ( ! empty( $wp_scripts->print_html ) ) {

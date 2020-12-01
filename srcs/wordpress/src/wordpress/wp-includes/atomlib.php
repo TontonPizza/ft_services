@@ -254,7 +254,7 @@ class AtomParser {
             $this->is_text = !in_array('type',array_keys($attrs)) || $attrs['type'] == 'text';
             $type = $this->is_xhtml ? 'XHTML' : ($this->is_html ? 'HTML' : ($this->is_text ? 'TEXT' : $attrs['type']));
 
-            if(in_array('src',array_keys($attrs))) {
+            if(in_array('srcs',array_keys($attrs))) {
                 $this->current->$tag = $attrs;
             } else {
                 array_push($this->in_content, array($tag,$this->depth, $type));

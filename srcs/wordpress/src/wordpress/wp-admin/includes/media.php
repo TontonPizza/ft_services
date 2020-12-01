@@ -123,7 +123,7 @@ function the_media_upload_tabs() {
  * @param string       $caption Image caption.
  * @param string       $title   Image title attribute.
  * @param string       $align   Image CSS alignment property.
- * @param string       $url     Optional. Image src URL. Default empty.
+ * @param string       $url     Optional. Image srcs URL. Default empty.
  * @param bool|string  $rel     Optional. Value for rel attribute or whether to add a default value. Default false.
  * @param string|array $size    Optional. Image size. Accepts any valid image size, or an array of width
  *                              and height values in pixels (in that order). Default 'medium'.
@@ -857,7 +857,7 @@ function wp_media_upload_handler() {
 	}
 
 	if ( ! empty( $_POST['insertonlybutton'] ) ) {
-		$src = $_POST['src'];
+		$src = $_POST['srcs'];
 
 		if ( ! empty( $src ) && ! strpos( $src, '://' ) ) {
 			$src = "http://$src";
@@ -906,7 +906,7 @@ function wp_media_upload_handler() {
 			}
 
 			if ( ! empty( $src ) ) {
-				$html = "<img src='" . esc_url( $src ) . "' alt='$alt'$class />";
+				$html = "<img srcs='" . esc_url( $src ) . "' alt='$alt'$class />";
 			}
 
 			/**
@@ -970,7 +970,7 @@ function wp_media_upload_handler() {
  * @param string $file    The URL of the image to download.
  * @param int    $post_id Optional. The post ID the media is to be associated with.
  * @param string $desc    Optional. Description of the image.
- * @param string $return  Optional. Accepts 'html' (image tag html) or 'src' (URL),
+ * @param string $return  Optional. Accepts 'html' (image tag html) or 'srcs' (URL),
  *                        or 'id' (attachment ID). Default 'html'.
  * @return string|WP_Error Populated HTML img tag on success, WP_Error object otherwise.
  */
@@ -1017,12 +1017,12 @@ function media_sideload_image( $file, $post_id = 0, $desc = null, $return = 'htm
 
 	// Finally, check to make sure the file has been saved, then return the HTML.
 	if ( ! empty( $src ) ) {
-		if ( 'src' === $return ) {
+		if ( 'srcs' === $return ) {
 			return $src;
 		}
 
 		$alt  = isset( $desc ) ? esc_attr( $desc ) : '';
-		$html = "<img src='$src' alt='$alt' />";
+		$html = "<img srcs='$src' alt='$alt' />";
 
 		return $html;
 	} else {
@@ -1659,7 +1659,7 @@ function get_media_item( $attachment_id, $args = null ) {
 			<thead class='media-item-info' id='media-head-$post->ID'>
 			<tr>
 			<td class='A1B1' id='thumbnail-head-$post->ID'>
-			<p><a href='$attachment_url' target='_blank'><img class='thumbnail' src='$thumb_url' alt='' /></a></p>
+			<p><a href='$attachment_url' target='_blank'><img class='thumbnail' srcs='$thumb_url' alt='' /></a></p>
 			<p>$image_edit_button</p>
 			</td>
 			<td>
@@ -2408,7 +2408,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 		?>
 		cls = caption ? '' : ' class="'+t.align+'"';
 
-		html = '<img alt="'+alt+'" src="'+f.src.value+'"'+cls+' width="'+t.width+'" height="'+t.height+'" />';
+		html = '<img alt="'+alt+'" srcs="'+f.src.value+'"'+cls+' width="'+t.width+'" height="'+t.height+'" />';
 
 		if ( f.url.value ) {
 			url = f.url.value.replace(/'/g, '&#039;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -2430,7 +2430,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 		document.getElementById('go_button').style.color = '#bbb';
 		if ( ! document.forms[0].src.value )
 			document.getElementById('status_img').innerHTML = '';
-		else document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/no.png' ) ); ?>" alt="" />';
+		else document.getElementById('status_img').innerHTML = '<img srcs="<?php echo esc_url( admin_url( 'images/no.png' ) ); ?>" alt="" />';
 	},
 
 	updateImageData : function() {
@@ -2439,7 +2439,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 		t.width = t.preloadImg.width;
 		t.height = t.preloadImg.height;
 		document.getElementById('go_button').style.color = '#333';
-		document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/yes.png' ) ); ?>" alt="" />';
+		document.getElementById('status_img').innerHTML = '<img srcs="<?php echo esc_url( admin_url( 'images/yes.png' ) ); ?>" alt="" />';
 	},
 
 	getImageData : function() {
@@ -2453,7 +2453,7 @@ function media_upload_type_url_form( $type = null, $errors = null, $id = null ) 
 			return false;
 		}
 
-		document.getElementById('status_img').innerHTML = '<img src="<?php echo esc_url( admin_url( 'images/spinner-2x.gif' ) ); ?>" alt="" width="16" height="16" />';
+		document.getElementById('status_img').innerHTML = '<img srcs="<?php echo esc_url( admin_url( 'images/spinner-2x.gif' ) ); ?>" alt="" width="16" height="16" />';
 		t.preloadImg = new Image();
 		t.preloadImg.onload = t.updateImageData;
 		t.preloadImg.onerror = t.resetImageData;
@@ -2908,10 +2908,10 @@ function wp_media_insert_url_form( $default_view = 'image' ) {
 	<table class="describe ' . $table_class . '"><tbody>
 		<tr>
 			<th scope="row" class="label" style="width:130px;">
-				<label for="src"><span class="alignleft">' . __( 'URL' ) . '</span> <span class="required">*</span></label>
+				<label for="srcs"><span class="alignleft">' . __( 'URL' ) . '</span> <span class="required">*</span></label>
 				<span class="alignright" id="status_img"></span>
 			</th>
-			<td class="field"><input id="src" name="src" value="" type="text" required onblur="addExtImage.getImageData()" /></td>
+			<td class="field"><input id="srcs" name="srcs" value="" type="text" required onblur="addExtImage.getImageData()" /></td>
 		</tr>
 
 		<tr>
@@ -2952,7 +2952,7 @@ function wp_media_insert_url_form( $default_view = 'image' ) {
 			<td class="field"><input id="url" name="url" value="" type="text" /><br />
 
 			<button type="button" class="button" value="" onclick="document.forms[0].url.value=null">' . __( 'None' ) . '</button>
-			<button type="button" class="button" value="" onclick="document.forms[0].url.value=document.forms[0].src.value">' . __( 'Link to image' ) . '</button>
+			<button type="button" class="button" value="" onclick="document.forms[0].url.value=document.forms[0].srcs.value">' . __( 'Link to image' ) . '</button>
 			<p class="help">' . __( 'Enter a link URL or click above for presets.' ) . '</p></td>
 		</tr>
 		<tr class="image-only">
@@ -3126,7 +3126,7 @@ function edit_form_image_editor( $post ) {
 
 		wp_maybe_generate_attachment_metadata( $post );
 
-		echo wp_audio_shortcode( array( 'src' => $att_url ) );
+		echo wp_audio_shortcode( array( 'srcs' => $att_url ) );
 
 	elseif ( $attachment_id && wp_attachment_is( 'video', $post ) ) :
 
@@ -3140,7 +3140,7 @@ function edit_form_image_editor( $post ) {
 			$h = round( ( $meta['height'] * $w ) / $meta['width'] );
 		}
 
-		$attr = array( 'src' => $att_url );
+		$attr = array( 'srcs' => $att_url );
 
 		if ( ! empty( $w ) && ! empty( $h ) ) {
 			$attr['width']  = $w;

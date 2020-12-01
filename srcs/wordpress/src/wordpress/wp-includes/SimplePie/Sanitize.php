@@ -213,7 +213,7 @@ class SimplePie_Sanitize
 	 * containing URLs that need to be resolved relative to the feed
 	 *
 	 * Defaults to |a|@href, |area|@href, |blockquote|@cite, |del|@cite,
-	 * |form|@action, |img|@longdesc, |img|@src, |input|@src, |ins|@cite,
+	 * |form|@action, |img|@longdesc, |img|@srcs, |input|@srcs, |ins|@cite,
 	 * |q|@cite
 	 *
 	 * @since 1.0
@@ -231,9 +231,9 @@ class SimplePie_Sanitize
 				'form' => 'action',
 				'img' => array(
 					'longdesc',
-					'src'
+					'srcs'
 				),
-				'input' => 'src',
+				'input' => 'srcs',
 				'ins' => 'cite',
 				'q' => 'cite'
 			);
@@ -332,25 +332,25 @@ class SimplePie_Sanitize
 					$images = $document->getElementsByTagName('img');
 					foreach ($images as $img)
 					{
-						if ($img->hasAttribute('src'))
+						if ($img->hasAttribute('srcs'))
 						{
-							$image_url = call_user_func($this->cache_name_function, $img->getAttribute('src'));
+							$image_url = call_user_func($this->cache_name_function, $img->getAttribute('srcs'));
 							$cache = $this->registry->call('Cache', 'get_handler', array($this->cache_location, $image_url, 'spi'));
 
 							if ($cache->load())
 							{
-								$img->setAttribute('src', $this->image_handler . $image_url);
+								$img->setAttribute('srcs', $this->image_handler . $image_url);
 							}
 							else
 							{
-								$file = $this->registry->create('File', array($img->getAttribute('src'), $this->timeout, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen));
+								$file = $this->registry->create('File', array($img->getAttribute('srcs'), $this->timeout, 5, array('X-FORWARDED-FOR' => $_SERVER['REMOTE_ADDR']), $this->useragent, $this->force_fsockopen));
 								$headers = $file->headers;
 
 								if ($file->success && ($file->method & SIMPLEPIE_FILE_SOURCE_REMOTE === 0 || ($file->status_code === 200 || $file->status_code > 206 && $file->status_code < 300)))
 								{
 									if ($cache->save(array('headers' => $file->headers, 'body' => $file->body)))
 									{
-										$img->setAttribute('src', $this->image_handler . $image_url);
+										$img->setAttribute('srcs', $this->image_handler . $image_url);
 									}
 									else
 									{

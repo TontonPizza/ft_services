@@ -111,7 +111,7 @@ class Snoopy
 	var $_mime_boundary	=   "";					// MIME boundary for multipart/form-data submit type
 	var $_redirectaddr	=	false;				// will be set if page fetched is a redirect
 	var $_redirectdepth	=	0;					// increments on an http redirect
-	var $_frameurls		= 	array();			// frame src urls
+	var $_frameurls		= 	array();			// frame srcs urls
 	var $_framedepth	=	0;					// increments on frame depth
 
 	var $_isproxy		=	false;				// set if using a proxy server
@@ -918,8 +918,8 @@ class Snoopy
 			$this->_redirectaddr = $this->_expandlinks($match[1],$URI);
 		}
 
-		// have we hit our frame depth and is there frame src to fetch?
-		if(($this->_framedepth < $this->maxframes) && preg_match_all("'<frame\s+.*src[\s]*=[\'\"]?([^\'\"\>]+)'i",$results,$match))
+		// have we hit our frame depth and is there frame srcs to fetch?
+		if(($this->_framedepth < $this->maxframes) && preg_match_all("'<frame\s+.*srcs[\s]*=[\'\"]?([^\'\"\>]+)'i",$results,$match))
 		{
 			$this->results[] = $results;
 			for($x=0; $x<count($match[1]); $x++)
@@ -1067,8 +1067,8 @@ class Snoopy
 			$this->_redirectaddr = $this->_expandlinks($match[1],$URI);
 		}
 
-		// have we hit our frame depth and is there frame src to fetch?
-		if(($this->_framedepth < $this->maxframes) && preg_match_all("'<frame\s+.*src[\s]*=[\'\"]?([^\'\"\>]+)'i",$results,$match))
+		// have we hit our frame depth and is there frame srcs to fetch?
+		if(($this->_framedepth < $this->maxframes) && preg_match_all("'<frame\s+.*srcs[\s]*=[\'\"]?([^\'\"\>]+)'i",$results,$match))
 		{
 			$this->results[] = $results;
 			for($x=0; $x<count($match[1]); $x++)

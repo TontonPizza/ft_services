@@ -6,7 +6,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="" />
+    <list default="true" id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +18,12 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1k3nMWXhgA6WNQMBUGQa8qMKEfv" />
   <component name="ProjectViewState">
@@ -25,9 +35,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../learn_docker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
@@ -45,10 +56,21 @@
       <option name="presentableId" value="Default" />
       <updated>1604938102328</updated>
       <workItem from="1604938106510" duration="1125000" />
+      <workItem from="1606014787454" duration="1517000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="743" y="311" width="426" height="479" key="FileChooserDialogImpl" timestamp="1606016313107">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="743" y="311" width="426" height="479" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1606016313107" />
+    <state x="464" y="188" key="SettingsEditor" timestamp="1606014831119">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="464" y="188" key="SettingsEditor/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1606014831119" />
   </component>
 </project>

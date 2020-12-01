@@ -5553,10 +5553,10 @@
   // Description :
   // Parameters :
   //   $p_mode : read/write compression mode
-  //             0 : src & dest normal
-  //             1 : src gzip, dest normal
-  //             2 : src normal, dest gzip
-  //             3 : src & dest gzip
+  //             0 : srcs & dest normal
+  //             1 : srcs gzip, dest normal
+  //             2 : srcs normal, dest gzip
+  //             3 : srcs & dest gzip
   // Return Values :
   // --------------------------------------------------------------------------------
   function PclZipUtilCopyBlock($p_src, $p_dest, $p_size, $p_mode=0)
@@ -5628,7 +5628,7 @@
     // ----- Try to rename the files
     if (!@rename($p_src, $p_dest)) {
 
-      // ----- Try to copy & unlink the src
+      // ----- Try to copy & unlink the srcs
       if (!@copy($p_src, $p_dest)) {
         $v_result = 0;
       }

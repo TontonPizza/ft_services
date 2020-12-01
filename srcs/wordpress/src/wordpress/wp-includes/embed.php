@@ -263,7 +263,7 @@ function wp_embed_handler_youtube( $matches, $attr, $url, $rawattr ) {
  * @return string The embed HTML.
  */
 function wp_embed_handler_audio( $matches, $attr, $url, $rawattr ) {
-	$audio = sprintf( '[audio src="%s" /]', esc_url( $url ) );
+	$audio = sprintf( '[audio srcs="%s" /]', esc_url( $url ) );
 
 	/**
 	 * Filters the audio embed output.
@@ -295,7 +295,7 @@ function wp_embed_handler_video( $matches, $attr, $url, $rawattr ) {
 		$dimensions .= sprintf( 'width="%d" ', (int) $rawattr['width'] );
 		$dimensions .= sprintf( 'height="%d" ', (int) $rawattr['height'] );
 	}
-	$video = sprintf( '[video %s src="%s" /]', $dimensions, esc_url( $url ) );
+	$video = sprintf( '[video %s srcs="%s" /]', $dimensions, esc_url( $url ) );
 
 	/**
 	 * Filters the video embed output.
@@ -451,7 +451,7 @@ function get_post_embed_html( $width, $height, $post = null ) {
 		$output .= file_get_contents( ABSPATH . WPINC . '/js/wp-embed.js' );
 	} else {
 		/*
-		 * If you're looking at a src version of this file, you'll see an "include"
+		 * If you're looking at a srcs version of this file, you'll see an "include"
 		 * statement below. This is used by the `npm run build` process to directly
 		 * include a minified version of wp-embed.js, instead of using the
 		 * file_get_contents() method from above.
@@ -462,14 +462,14 @@ function get_post_embed_html( $width, $height, $post = null ) {
 		 */
 		$output .= <<<JS
 		/*! This file is auto-generated */
-		!function(d,l){"use strict";var e=!1,o=!1;if(l.querySelector)if(d.addEventListener)e=!0;if(d.wp=d.wp||{},!d.wp.receiveEmbedMessage)if(d.wp.receiveEmbedMessage=function(e){var t=e.data;if(t)if(t.secret||t.message||t.value)if(!/[^a-zA-Z0-9]/.test(t.secret)){var r,a,i,s,n,o=l.querySelectorAll('iframe[data-secret="'+t.secret+'"]'),c=l.querySelectorAll('blockquote[data-secret="'+t.secret+'"]');for(r=0;r<c.length;r++)c[r].style.display="none";for(r=0;r<o.length;r++)if(a=o[r],e.source===a.contentWindow){if(a.removeAttribute("style"),"height"===t.message){if(1e3<(i=parseInt(t.value,10)))i=1e3;else if(~~i<200)i=200;a.height=i}if("link"===t.message)if(s=l.createElement("a"),n=l.createElement("a"),s.href=a.getAttribute("src"),n.href=t.value,n.host===s.host)if(l.activeElement===a)d.top.location.href=t.value}}},e)d.addEventListener("message",d.wp.receiveEmbedMessage,!1),l.addEventListener("DOMContentLoaded",t,!1),d.addEventListener("load",t,!1);function t(){if(!o){o=!0;var e,t,r,a,i=-1!==navigator.appVersion.indexOf("MSIE 10"),s=!!navigator.userAgent.match(/Trident.*rv:11\./),n=l.querySelectorAll("iframe.wp-embedded-content");for(t=0;t<n.length;t++){if(!(r=n[t]).getAttribute("data-secret"))a=Math.random().toString(36).substr(2,10),r.src+="#?secret="+a,r.setAttribute("data-secret",a);if(i||s)(e=r.cloneNode(!0)).removeAttribute("security"),r.parentNode.replaceChild(e,r)}}}}(window,document);
+		!function(d,l){"use strict";var e=!1,o=!1;if(l.querySelector)if(d.addEventListener)e=!0;if(d.wp=d.wp||{},!d.wp.receiveEmbedMessage)if(d.wp.receiveEmbedMessage=function(e){var t=e.data;if(t)if(t.secret||t.message||t.value)if(!/[^a-zA-Z0-9]/.test(t.secret)){var r,a,i,s,n,o=l.querySelectorAll('iframe[data-secret="'+t.secret+'"]'),c=l.querySelectorAll('blockquote[data-secret="'+t.secret+'"]');for(r=0;r<c.length;r++)c[r].style.display="none";for(r=0;r<o.length;r++)if(a=o[r],e.source===a.contentWindow){if(a.removeAttribute("style"),"height"===t.message){if(1e3<(i=parseInt(t.value,10)))i=1e3;else if(~~i<200)i=200;a.height=i}if("link"===t.message)if(s=l.createElement("a"),n=l.createElement("a"),s.href=a.getAttribute("srcs"),n.href=t.value,n.host===s.host)if(l.activeElement===a)d.top.location.href=t.value}}},e)d.addEventListener("message",d.wp.receiveEmbedMessage,!1),l.addEventListener("DOMContentLoaded",t,!1),d.addEventListener("load",t,!1);function t(){if(!o){o=!0;var e,t,r,a,i=-1!==navigator.appVersion.indexOf("MSIE 10"),s=!!navigator.userAgent.match(/Trident.*rv:11\./),n=l.querySelectorAll("iframe.wp-embedded-content");for(t=0;t<n.length;t++){if(!(r=n[t]).getAttribute("data-secret"))a=Math.random().toString(36).substr(2,10),r.srcs+="#?secret="+a,r.setAttribute("data-secret",a);if(i||s)(e=r.cloneNode(!0)).removeAttribute("security"),r.parentNode.replaceChild(e,r)}}}}(window,document);
 JS;
 	}
 	$output .= "\n//--><!]]>";
 	$output .= "\n</script>";
 
 	$output .= sprintf(
-		'<iframe sandbox="allow-scripts" security="restricted" src="%1$s" width="%2$d" height="%3$d" title="%4$s" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="wp-embedded-content"></iframe>',
+		'<iframe sandbox="allow-scripts" security="restricted" srcs="%1$s" width="%2$d" height="%3$d" title="%4$s" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="wp-embedded-content"></iframe>',
 		esc_url( $embed_url ),
 		absint( $width ),
 		absint( $height ),
@@ -887,7 +887,7 @@ function wp_filter_oembed_result( $result, $data, $url ) {
 		),
 		'blockquote' => array(),
 		'iframe'     => array(
-			'src'          => true,
+			'srcs'          => true,
 			'width'        => true,
 			'height'       => true,
 			'frameborder'  => true,
@@ -907,7 +907,7 @@ function wp_filter_oembed_result( $result, $data, $url ) {
 	}
 	$html = $content[1] . $content[2];
 
-	preg_match( '/ src=([\'"])(.*?)\1/', $html, $results );
+	preg_match( '/ srcs=([\'"])(.*?)\1/', $html, $results );
 
 	if ( ! empty( $results ) ) {
 		$secret = wp_generate_password( 10, false );
@@ -915,7 +915,7 @@ function wp_filter_oembed_result( $result, $data, $url ) {
 		$url = esc_url( "{$results[2]}#?secret=$secret" );
 		$q   = $results[1];
 
-		$html = str_replace( $results[0], ' src=' . $q . $url . $q . ' data-secret=' . $q . $secret . $q, $html );
+		$html = str_replace( $results[0], ' srcs=' . $q . $url . $q . ' data-secret=' . $q . $secret . $q, $html );
 		$html = str_replace( '<blockquote', "<blockquote data-secret=\"$secret\"", $html );
 	}
 
@@ -1033,7 +1033,7 @@ function print_embed_styles() {
 		readfile( ABSPATH . WPINC . '/css/wp-embed-template.css' );
 	} else {
 		/*
-		 * If you're looking at a src version of this file, you'll see an "include"
+		 * If you're looking at a srcs version of this file, you'll see an "include"
 		 * statement below. This is used by the `npm run build` process to directly
 		 * include a minified version of wp-oembed-embed.css, instead of using the
 		 * readfile() method from above.
@@ -1066,7 +1066,7 @@ function print_embed_scripts() {
 		readfile( ABSPATH . WPINC . '/js/wp-embed-template.js' );
 	} else {
 		/*
-		 * If you're looking at a src version of this file, you'll see an "include"
+		 * If you're looking at a srcs version of this file, you'll see an "include"
 		 * statement below. This is used by the `npm run build` process to directly
 		 * include a minified version of wp-embed-template.js, instead of using the
 		 * readfile() method from above.
@@ -1197,7 +1197,7 @@ function print_embed_sharing_dialog() {
  */
 function the_embed_site_title() {
 	$site_title = sprintf(
-		'<a href="%s" target="_top"><img src="%s" srcset="%s 2x" width="32" height="32" alt="" class="wp-embed-site-icon"/><span>%s</span></a>',
+		'<a href="%s" target="_top"><img srcs="%s" srcset="%s 2x" width="32" height="32" alt="" class="wp-embed-site-icon"/><span>%s</span></a>',
 		esc_url( home_url() ),
 		esc_url( get_site_icon_url( 32, includes_url( 'images/w-logo-blue.png' ) ) ),
 		esc_url( get_site_icon_url( 64, includes_url( 'images/w-logo-blue.png' ) ) ),

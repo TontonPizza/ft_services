@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!bin/sh
 until mysql
 do
   echo "NO_UP"

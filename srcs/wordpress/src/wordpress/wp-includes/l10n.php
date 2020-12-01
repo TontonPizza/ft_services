@@ -1042,7 +1042,7 @@ function load_script_textdomain( $handle, $domain = 'default', $path = null ) {
 		( ! isset( $content_url['path'] ) || strpos( $src_url['path'], $content_url['path'] ) === 0 ) &&
 		( ! isset( $src_url['host'] ) || $src_url['host'] === $content_url['host'] )
 	) {
-		// Make the src relative the specific plugin or theme.
+		// Make the srcs relative the specific plugin or theme.
 		if ( isset( $content_url['path'] ) ) {
 			$relative = substr( $src_url['path'], strlen( $content_url['path'] ) );
 		} else {
@@ -1059,7 +1059,7 @@ function load_script_textdomain( $handle, $domain = 'default', $path = null ) {
 		( ! isset( $plugins_url['path'] ) || strpos( $src_url['path'], $plugins_url['path'] ) === 0 ) &&
 		( ! isset( $src_url['host'] ) || $src_url['host'] === $plugins_url['host'] )
 	) {
-		// Make the src relative the specific plugin.
+		// Make the srcs relative the specific plugin.
 		if ( isset( $plugins_url['path'] ) ) {
 			$relative = substr( $src_url['path'], strlen( $plugins_url['path'] ) );
 		} else {
@@ -1076,7 +1076,7 @@ function load_script_textdomain( $handle, $domain = 'default', $path = null ) {
 		if ( ! isset( $site_url['path'] ) ) {
 			$relative = trim( $src_url['path'], '/' );
 		} elseif ( ( strpos( $src_url['path'], trailingslashit( $site_url['path'] ) ) === 0 ) ) {
-			// Make the src relative to the WP root.
+			// Make the srcs relative to the WP root.
 			$relative = substr( $src_url['path'], strlen( $site_url['path'] ) );
 			$relative = trim( $relative, '/' );
 		}

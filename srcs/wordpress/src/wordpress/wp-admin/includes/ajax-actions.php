@@ -3288,7 +3288,7 @@ function wp_ajax_send_link_to_editor() {
 
 	check_ajax_referer( 'media-send-to-editor', 'nonce' );
 
-	$src = wp_unslash( $_POST['src'] );
+	$src = wp_unslash( $_POST['srcs'] );
 	if ( ! $src ) {
 		wp_send_json_error();
 	}
@@ -3642,8 +3642,8 @@ function wp_ajax_parse_embed() {
 
 	if ( ! empty( $matches[5] ) ) {
 		$url = $matches[5];
-	} elseif ( ! empty( $atts['src'] ) ) {
-		$url = $atts['src'];
+	} elseif ( ! empty( $atts['srcs'] ) ) {
+		$url = $atts['srcs'];
 	} else {
 		$url = '';
 	}
@@ -3717,7 +3717,7 @@ function wp_ajax_parse_embed() {
 		$parsed = $styles . $html . $scripts;
 	}
 
-	if ( ! empty( $no_ssl_support ) || ( is_ssl() && ( preg_match( '%<(iframe|script|embed) [^>]*src="http://%', $parsed ) ||
+	if ( ! empty( $no_ssl_support ) || ( is_ssl() && ( preg_match( '%<(iframe|script|embed) [^>]*srcs="http://%', $parsed ) ||
 		preg_match( '%<link [^>]*href="http://%', $parsed ) ) ) ) {
 		// Admin is ssl and the embed is not. Iframes, scripts, and other "active content" will be blocked.
 		wp_send_json_error(
@@ -3740,7 +3740,7 @@ function wp_ajax_parse_embed() {
 			$script_src = includes_url( 'js/wp-embed.min.js' );
 		}
 
-		$return['head']    = '<script src="' . $script_src . '"></script>';
+		$return['head']    = '<script srcs="' . $script_src . '"></script>';
 		$return['sandbox'] = true;
 	}
 

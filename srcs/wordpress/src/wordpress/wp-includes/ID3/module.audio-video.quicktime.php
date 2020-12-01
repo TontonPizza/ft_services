@@ -362,7 +362,7 @@ class getid3_quicktime extends getid3_handler
 				case "\xA9".'PRD': //
 				case "\xA9".'prf': //
 				case "\xA9".'req': //
-				case "\xA9".'src': //
+				case "\xA9".'srcs': //
 				case "\xA9".'swr': //
 				case "\xA9".'too': // encoder
 				case "\xA9".'trk': // TRacK
@@ -2836,7 +2836,7 @@ $this->warning('incomplete/incorrect handling of "stsd" with Parrot metadata in 
 			$handyatomtranslatorarray["\xA9".'PRD'] = 'product';
 			$handyatomtranslatorarray["\xA9".'prf'] = 'performers';
 			$handyatomtranslatorarray["\xA9".'req'] = 'system_requirements';
-			$handyatomtranslatorarray["\xA9".'src'] = 'source_credit';
+			$handyatomtranslatorarray["\xA9".'srcs'] = 'source_credit';
 			$handyatomtranslatorarray["\xA9".'swr'] = 'software';
 			$handyatomtranslatorarray["\xA9".'too'] = 'encoding_tool';       // iTunes 4.0
 			$handyatomtranslatorarray["\xA9".'trk'] = 'track_number';

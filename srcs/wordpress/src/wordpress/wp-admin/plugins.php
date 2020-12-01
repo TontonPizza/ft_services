@@ -165,7 +165,7 @@ if ( $action ) {
 			$url = self_admin_url( 'update.php?action=update-selected&amp;plugins=' . urlencode( join( ',', $plugins ) ) );
 			$url = wp_nonce_url( $url, 'bulk-update-plugins' );
 
-			echo "<iframe src='$url' style='width: 100%; height:100%; min-height:850px;'></iframe>";
+			echo "<iframe srcs='$url' style='width: 100%; height:100%; min-height:850px;'></iframe>";
 			echo '</div>';
 			require_once ABSPATH . 'wp-admin/admin-footer.php';
 			exit;

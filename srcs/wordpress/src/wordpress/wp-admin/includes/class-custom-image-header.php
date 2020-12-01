@@ -307,7 +307,7 @@ class Custom_Image_Header {
 			if ( ! empty( $header['attachment_id'] ) ) {
 				$width = ' width="230"';
 			}
-			echo '<img src="' . set_url_scheme( $header_thumbnail ) . '" alt="' . esc_attr( $header_alt_text ) . '"' . $width . ' /></label>';
+			echo '<img srcs="' . set_url_scheme( $header_thumbnail ) . '" alt="' . esc_attr( $header_alt_text ) . '"' . $width . ' /></label>';
 			echo '</div>';
 		}
 		echo '<div class="clear"></div></div>';

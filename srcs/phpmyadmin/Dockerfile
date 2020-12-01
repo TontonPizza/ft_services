@@ -15,6 +15,8 @@ COPY srcs/www.conf /etc/php7/php-fpm.d/www.conf
 COPY srcs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN mkdir -p /var/www/html
+RUN mkdir -p /usr/share/phpmyadmin/tmp
+RUN chmod 777 -R /usr/share/phpmyadmin
 
 RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /run && \

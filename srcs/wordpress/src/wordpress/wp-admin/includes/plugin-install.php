@@ -558,7 +558,7 @@ function install_plugin_information() {
 		'h5'         => array(),
 		'h6'         => array(),
 		'img'        => array(
-			'src'   => array(),
+			'srcs'   => array(),
 			'class' => array(),
 			'alt'   => array(),
 		),
@@ -783,7 +783,7 @@ function install_plugin_information() {
 					$contrib_profile = esc_url( $contrib_details['profile'] );
 					$contrib_avatar  = esc_url( add_query_arg( 's', '36', $contrib_details['avatar'] ) );
 
-					echo "<li><a href='{$contrib_profile}' target='_blank'><img src='{$contrib_avatar}' width='18' height='18' alt='' />{$contrib_name}</a></li>";
+					echo "<li><a href='{$contrib_profile}' target='_blank'><img srcs='{$contrib_avatar}' width='18' height='18' alt='' />{$contrib_name}</a></li>";
 				}
 				?>
 			</ul>

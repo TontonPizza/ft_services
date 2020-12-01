@@ -19,5 +19,4 @@ VOLUME /var/lib/mysql
 COPY ./srcs/my.cnf /etc/mysql/my.cnf
 COPY ./srcs/my.cnf /etc/.
 
-
 ENTRYPOINT ["./init_docker.sh"]

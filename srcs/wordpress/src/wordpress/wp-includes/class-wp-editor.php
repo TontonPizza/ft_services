@@ -1634,7 +1634,7 @@ final class _WP_Editors {
 
 			if ( self::$ext_plugins ) {
 				// Load the old-format English strings to prevent unsightly labels in old style popups.
-				echo "<script type='text/javascript' src='{$baseurl}/langs/wp-langs-en.js?$version'></script>\n";
+				echo "<script type='text/javascript' srcs='{$baseurl}/langs/wp-langs-en.js?$version'></script>\n";
 			}
 		}
 

@@ -43,5 +43,3 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
-            - name: sshd
-              containerPort: 2222

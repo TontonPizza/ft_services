@@ -6,11 +6,11 @@ metadata:
 data:
   config: |
     address-pools:
-    - name: default
+    - name: nginx_ip
       protocol: layer2
       addresses:
-      - 192.168.99.170-192.168.99.175
-    - name: default-wp
+      - 172.18.0.1-172.18.0.1
+    - name: ftps_ip
       protocol: layer2
       addresses:
-      - 192.168.99.176-192.168.99.176
+      - 172.18.0.2-172.18.0.2

@@ -7,18 +7,27 @@ BLUE='\033[0;34m'
 #newgrp docker
 #sudo chmod 777 /var/run/docker.sock
 
-if [ ! -f kind ]; then
-  echo "${GREEN}Installing Kind${END}"
-  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
-  mv /home/$USER/go .
-  mv go/kind .
-  rm -rf go
-else
-  echo "${GREEN}Kind already installed${END}"
-fi
+#if [ ! -f kind ]; then
+#  echo "${GREEN}Installing Kind${END}"
+#  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+#  mv /home/$USER/go .
+#  mv go/kind .
+#  rm -rf go
+#else
+#  echo "${GREEN}Kind already installed${END}"
+#fi
+#
+#./kind delete cluster
+#./kind create cluster
 
-./kind delete cluster
-./kind create cluster
+minikube delete
+#docker network rm ft_network
+
+minikube start --driver=virtualbox
+eval $(minikube docker-env)
+
+minikube addons enable metrics-server
+minikube addons enable metallb
 
 
 # actually apply the changes, returns nonzero returncode on errors only
@@ -41,27 +50,31 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 #>>>>>ConfigMap
 kubectl create -f ./srcs/metallb/metallb.yaml
 
-
-#>>>>> 172.18.0.1
+#>>>>> 172.18.1.2
 docker build -t img_nginx ./srcs/nginx > /dev/null 2>&1
-./kind load docker-image img_nginx
+#./kind load docker-image img_nginx
 kubectl apply -f ./srcs/nginx/nginx.yaml
 
-#>>>>> 172.18.0.2
-
+#>>>>> 172.18.1.3
 docker build -t img_ftps ./srcs/ftps > /dev/null 2>&1
-./kind load docker-image img_ftps
+#./kind load docker-image img_ftps
 kubectl apply -f ./srcs/ftps/ftps.yaml
+#
+#>>>>> 172.18.1.4
+docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
+#./kind load docker-image img_php
+kubectl apply -f ./srcs/phpmyadmin/php.yaml
+#
+##>>>> ClusterIP
+docker build -t img_mysql ./srcs/mysql > /dev/null 2>&1
+#./kind load docker-image img_mysql
+kubectl apply -f ./srcs/mysql/mysql.yaml
 
-
-
-
-
-#>>>>>cette commande pour aovir des infos sur l'ip des services
+#>>>>>cette commande pour avoir des infos sur l'ip des services
 #kubectl get svc nginx
 
 #>>>>>pour activer le dashboard
 #kubectl proxy
 #>>>>>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
 
-
+minikube dashboard &

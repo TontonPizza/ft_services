@@ -11,3 +11,6 @@ kubectl -n kube-system get all
 
 
 kubectl get ns   #namespaces
+
+
+172.18.0.1 ne marche pas

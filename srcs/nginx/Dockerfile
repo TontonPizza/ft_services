@@ -16,6 +16,8 @@ COPY ./srcs/nginx_conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./srcs/nginx_conf/default.conf /etc/nginx/conf.d/default.conf
 COPY ./srcs/sites /sites
 
+RUN chown -R www-data:www-data ./srcs/
+
 COPY ./srcs/telegraf.conf /etc/telegraf/.
 COPY ./srcs/telegraf-1.6.3-static_linux_amd64.tar.gz .
 RUN tar xf telegraf-1.6.3-static_linux_amd64.tar.gz && \

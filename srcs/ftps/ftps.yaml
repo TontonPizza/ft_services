@@ -5,7 +5,7 @@ metadata:
     app: ftps
   name: ftps
   annotations:
-    metallb.universe.tf/address-pool: ftps_ip
+    metallb.universe.tf/address-pool: ip_ftps
 spec:
   ports:
     - name: ftps

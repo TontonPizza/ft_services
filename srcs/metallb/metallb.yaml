@@ -6,11 +6,15 @@ metadata:
 data:
   config: |
     address-pools:
-    - name: nginx_ip
+    - name: ip_nginx
       protocol: layer2
       addresses:
-      - 172.18.0.1-172.18.0.1
-    - name: ftps_ip
+      - 172.18.1.2-172.18.1.2
+    - name: ip_ftps
       protocol: layer2
       addresses:
-      - 172.18.0.2-172.18.0.2
+      - 172.18.1.3-172.18.1.3
+    - name: ip_php
+      protocol: layer2
+      addresses:
+      - 172.18.1.4-172.18.1.4

@@ -29,7 +29,7 @@ docker build -t img_wp ./srcs/wordpress > /dev/null 2>&1
 docker run -itd --name c_wp       -p 5050:5050          --net ft_network --ip 172.20.0.3 img_wp
 
 docker build -t img_ftps ./srcs/ftps > /dev/null 2>&1
-docker run -itd --name c_ftps     -p 21:21              --net ft_network --ip 172.20.0.4 img_ftps
+docker run -itd --name c_ftps     -p 21:21      --net ft_network --ip 172.20.0.4 img_ftps
 
 docker build -t img_mysql ./srcs/mysql > /dev/null 2>&1
 docker run -itd --name c_mysql    -p 3306:3306          --net ft_network --ip 172.20.0.5 img_mysql

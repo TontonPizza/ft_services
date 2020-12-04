@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+  labels:
+    app: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+        - image: wordpress-service
+          imagePullPolicy: Never
+          name: cacharle-wordpress-container
+          livenessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - ps aux | grep -v grep | grep php-fpm
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-service
+  labels:
+    app: wordpress
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http-wordpress
+      port: 5050
+      targetPort: 5050
+  selector:
+    app: wordpress

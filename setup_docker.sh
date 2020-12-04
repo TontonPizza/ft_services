@@ -20,7 +20,7 @@ docker network create --subnet=172.20.0.1/16 ft_network
 echo "${GREEN}Creating images and loading${END}"
 
 docker build -t img_influx ./srcs/influxdb > /dev/null 2>&1
-docker run -itd --name c_influx   -p 8086               --net ft_network --ip 172.20.0.8 img_influx
+docker run -itd --name c_influx   -p 8086:8086              --net ft_network --ip 172.20.0.8 img_influx
 
 docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
 docker run -itd --name c_php      -p 5000:5000          --net ft_network --ip 172.20.0.2 img_php

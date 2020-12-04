@@ -6,6 +6,14 @@ RUN apk update
 RUN apk add mariadb mariadb-client && apk add --no-cache --upgrade bash \
     && rm -rf /var/cache/apk/*
 
+RUN apk add supervisor curl
+
+RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
+    tar xvf telegraf.tar.gz && \
+    mv 'telegraf-1.16.0' telegraf
+COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+ADD ./srcs/supervisor.conf /etc/supervisor.conf
+
 COPY ./srcs/init_docker.sh .
 COPY ./srcs/init_mysql.sh .
 COPY ./srcs/wordpress.sql .
@@ -19,4 +27,4 @@ VOLUME /var/lib/mysql
 COPY ./srcs/my.cnf /etc/mysql/my.cnf
 COPY ./srcs/my.cnf /etc/.
 
-ENTRYPOINT ["./init_docker.sh"]
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]

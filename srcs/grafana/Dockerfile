@@ -7,7 +7,7 @@ RUN apk add --update --no-cache bash \
 
 COPY srcs/grafana-7.0.3.linux-amd64.tar.gz ./
 RUN tar xf grafana-7.0.3.linux-amd64.tar.gz && rm grafana-7.0.3.linux-amd64.tar.gz
-COPY ./srcs/grafana.db ./grafana-7.0.3/data/
+#COPY ./srcs/grafana.db ./grafana-7.0.3/data/
 COPY ./srcs/start.sh .
 
 #COPY wrapper.sh .

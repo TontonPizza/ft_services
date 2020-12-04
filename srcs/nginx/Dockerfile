@@ -3,8 +3,12 @@ FROM alpine:3.6
 RUN apk update
 RUN apk upgrade
 RUN apk add openssl
-RUN apk add supervisor
+RUN apk add supervisor curl
 
+RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
+    tar xvf telegraf.tar.gz && \
+    mv 'telegraf-1.16.0' telegraf
+COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
 RUN apk add --update nginx && rm -rf /var/cache/apk/*
 RUN mkdir -p /tmp/nginx/client-body
@@ -16,11 +20,6 @@ COPY ./srcs/nginx_conf/nginx.conf /etc/nginx/nginx.conf
 COPY ./srcs/nginx_conf/default.conf /etc/nginx/conf.d/default.conf
 COPY ./srcs/sites /sites
 
-
-COPY ./srcs/telegraf.conf /etc/telegraf/.
-COPY ./srcs/telegraf-1.6.3-static_linux_amd64.tar.gz .
-RUN tar xf telegraf-1.6.3-static_linux_amd64.tar.gz && \
-	rm telegraf-1.6.3-static_linux_amd64.tar.gz
 ADD ./srcs/supervisor.conf /etc/supervisor.conf
 
 EXPOSE 80 443

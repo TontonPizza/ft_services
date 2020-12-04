@@ -1,1 +1,0 @@
-echo "CREATE DATABASE monitoring_db" | influx 

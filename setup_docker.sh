@@ -8,17 +8,19 @@ YELLOW='\033[1;33m'
 END='\033[0;0m'
 
 echo "${GREEN} Stop everything running${END}"
-docker container stop $(docker ps -a -q)
+docker container stop c_nginx c_wp c_php c_mysql c_ftps c_grafana c_influx
 docker container rm c_nginx c_wp c_php c_mysql c_ftps c_grafana c_influx
 docker network rm ft_network
-service nginx stop
-service mysql stop
+#service nginx stop
+#service mysql stop
 
 echo "${GREEN}Creating network on ip 172.18.0.0/16${END}"
 docker network create --subnet=172.20.0.1/16 ft_network
 
 echo "${GREEN}Creating images and loading${END}"
 
+docker build -t img_influx ./srcs/influxdb > /dev/null 2>&1
+docker run -itd --name c_influx   -p 8086               --net ft_network --ip 172.20.0.8 img_influx
 
 docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
 docker run -itd --name c_php      -p 5000:5000          --net ft_network --ip 172.20.0.2 img_php
@@ -38,7 +40,6 @@ docker run -itd --name c_nginx    -p 80:80 -p 443:443   --net ft_network --ip 17
 docker build -t img_grafana ./srcs/grafana > /dev/null 2>&1
 docker run -itd --name c_grafana  -p 3000:3000          --net ft_network --ip 172.20.0.7 img_grafana
 
-docker build -t img_influx ./srcs/influxdb > /dev/null 2>&1
-docker run -itd --name c_influx   -p 8086               --net ft_network --ip 172.20.0.8 img_influx
+
 
 echo "${GREEN}Done !${END}"

@@ -12,7 +12,14 @@ RUN  rm /etc/nginx/conf.d/default.conf
 
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
 COPY srcs/www.conf /etc/php7/php-fpm.d/www.conf
-COPY srcs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY srcs/supervisor.conf /etc/supervisor/conf.d/supervisord.conf
+
+RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
+    tar xvf telegraf.tar.gz && \
+    mv 'telegraf-1.16.0' telegraf
+COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+ADD ./srcs/supervisor.conf /etc/supervisor.conf
+
 
 RUN mkdir -p /var/www/html
 RUN mkdir -p /usr/share/phpmyadmin/tmp
@@ -24,24 +31,17 @@ RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /var/log/nginx
 
 
-WORKDIR /var/www/html/
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-english.tar.gz
 RUN tar xf phpMyAdmin-4.9.1-english.tar.gz && rm -rf phpMyAdmin-4.9.1-english.tar.gz
-RUN mv phpMyAdmin-4.9.1-english phpmyadmin
-COPY srcs/config.inc.php phpmyadmin
+RUN mv phpMyAdmin-4.9.1-english /var/www/html/phpmyadmin
+COPY srcs/config.inc.php /var/www/html/phpmyadmin
 
 USER nobody
-
-WORKDIR /var/www/html
 COPY --chown=nobody srcs/ /var/www/html/
 
 EXPOSE 5000
 
-RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
-    tar xvf telegraf.tar.gz && \
-    mv 'telegraf-1.16.0' telegraf
-COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
-ADD ./srcs/supervisor.conf /etc/supervisor.conf
+
 
 CMD ["supervisord", "-c", "/etc/supervisor.conf"]
 

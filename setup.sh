@@ -2,21 +2,20 @@
 
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
+PURPLE='\033[1;35'
+END='\033[0;0m'
 
 #sudo usermod -aG docker $USER
 #newgrp docker
 #sudo chmod 777 /var/run/docker.sock
 
-#if [ ! -f kind ]; then
-#  echo "${GREEN}Installing Kind${END}"
-#  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
-#  mv /home/$USER/go .
-#  mv go/kind .
-#  rm -rf go
-#else
-#  echo "${GREEN}Kind already installed${END}"
-#fi
-#
+
+echo "${GREEN}Installing Kind${END}"
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+mv /home/$USER/go .
+mv go/kind .
+rm -rf go
+
 #./kind delete cluster
 #./kind create cluster
 

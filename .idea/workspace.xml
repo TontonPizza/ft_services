@@ -24,16 +24,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/ftps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/ftps.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/nginx.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" afterDir="false" />
-    </list>
+    <list default="true" id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -95,6 +86,7 @@
       <workItem from="1606914858381" duration="1729000" />
       <workItem from="1606920290444" duration="6105000" />
       <workItem from="1606962738045" duration="237000" />
+      <workItem from="1606983185867" duration="17000" />
     </task>
     <servers />
   </component>
@@ -118,10 +110,11 @@
       <screen x="0" y="25" width="1920" height="990" />
     </state>
     <state x="703" y="324" width="505" height="388" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1920.990/1920.0.1920.1015@0.25.1920.990" timestamp="1606906307936" />
-    <state x="743" y="311" width="426" height="479" key="FileChooserDialogImpl" timestamp="1606016313107">
-      <screen x="0" y="25" width="1920" height="1055" />
+    <state x="743" y="293" width="426" height="479" key="FileChooserDialogImpl" timestamp="1606983200084">
+      <screen x="0" y="25" width="1920" height="990" />
     </state>
     <state x="743" y="311" width="426" height="479" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1606016313107" />
+    <state x="743" y="293" key="FileChooserDialogImpl/0.25.1920.990@0.25.1920.990" timestamp="1606983200084" />
     <state x="464" y="178" key="SettingsEditor" timestamp="1606905575400">
       <screen x="0" y="25" width="1920" height="990" />
     </state>

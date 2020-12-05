@@ -18,13 +18,13 @@ fi              ################################################################
 build_images()
 {
   echo "${GREEN}Building images${END}"
-  docker build -t img_wp          ./srcs/wordpress
-  docker build -t img_grafana     ./srcs/grafana
-  docker build -t img_influx      ./srcs/influxdb
-  docker build -t img_nginx       ./srcs/nginx
-  docker build -t img_ftps        ./srcs/ftps
-  docker build -t img_php         ./srcs/phpmyadmin
-  docker build -t img_mysql       ./srcs/mysql
+  docker build -t img_wp          ./srcs/wordpress > /dev/null 2>&1
+  docker build -t img_grafana     ./srcs/grafana > /dev/null 2>&1
+  docker build -t img_influx      ./srcs/influxdb > /dev/null 2>&1
+  docker build -t img_nginx       ./srcs/nginx > /dev/null 2>&1
+  docker build -t img_ftps        ./srcs/ftps > /dev/null 2>&1
+  docker build -t img_php         ./srcs/phpmyadmin > /dev/null 2>&1
+  docker build -t img_mysql       ./srcs/mysql > /dev/null 2>&1
 }
 
 install_metallb()
@@ -34,7 +34,7 @@ install_metallb()
   sed -e "s/strictARP: false/strictARP: true/" | \
   kubectl apply -f - -n kube-system
   #>>>>>Deploiement du Dashboard
-  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+
   #>>>>>Création d'un user pour le dashboard
 
   #>>>>>cette commande sert à obtenir un jeton de connexion pour le dashboard
@@ -96,6 +96,7 @@ then
   ./kind create cluster
 
   install_metallb
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
   build_images
 
   echo "${YELLOW}Loading images in kind${END}"
@@ -135,13 +136,13 @@ then
 
   echo "${GREEN}Running images in the network${END}"
 
-  docker run -itd --name c_influx   -p 8086:8086          --net ft_network --ip 172.20.0.8 img_influx
   docker run -itd --name c_php      -p 5000:5000          --net ft_network --ip 172.20.0.2 img_php
   docker run -itd --name c_wp       -p 5050:5050          --net ft_network --ip 172.20.0.3 img_wp
   docker run -itd --name c_ftps     -p 21:21              --net ft_network --ip 172.20.0.4 img_ftps
   docker run -itd --name c_mysql    -p 3306:3306          --net ft_network --ip 172.20.0.5 img_mysql
   docker run -itd --name c_nginx    -p 80:80 -p 443:443   --net ft_network --ip 172.20.0.6 img_nginx
   docker run -itd --name c_grafana  -p 3000:3000          --net ft_network --ip 172.20.0.7 img_grafana
+  docker run -itd --name c_influx   -p 8086:8086          --net ft_network --ip 172.20.0.8 img_influx
 
   echo "${GREEN}Done !${END}"
   exit 0

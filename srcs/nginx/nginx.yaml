@@ -47,8 +47,6 @@ spec:
           livenessProbe:
             exec:
               command:
-                - bin/sh
-                - -c
-                - ./liveprobe.sh
+                - pgrep "nginx"
             initialDelaySeconds: 10
             periodSeconds: 10

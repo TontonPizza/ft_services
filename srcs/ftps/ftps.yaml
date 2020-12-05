@@ -43,4 +43,7 @@ spec:
           ports:
             - name : ftps
               containerPort: 21
-      restartPolicy : Always
+          livenessProbe:
+            exec:
+              command:
+              - pgrep "vsftpd"

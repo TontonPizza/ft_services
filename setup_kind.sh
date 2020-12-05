@@ -44,25 +44,34 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 #>>>>>ConfigMap
 kubectl create -f ./srcs/metallb/metallb.yaml
 
-#>>>>> 172.18.1.2
+docker build -t img_influx ./srcs/influxdb > /dev/null 2>&1
+./kind load docker-image img_influx
+kubectl apply -f ./srcs/influxdb/influxdb.yaml
+
 docker build -t img_nginx ./srcs/nginx > /dev/null 2>&1
 ./kind load docker-image img_nginx
 kubectl apply -f ./srcs/nginx/nginx.yaml
 
-##>>>>> 172.18.1.3
-#docker build -t img_ftps ./srcs/ftps > /dev/null 2>&1
-##./kind load docker-image img_ftps
-#kubectl apply -f ./srcs/ftps/ftps.yaml
-##
-##>>>>> 172.18.1.4
-#docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
-##./kind load docker-image img_php
-#kubectl apply -f ./srcs/phpmyadmin/php.yaml
-##
-###>>>> ClusterIP
-#docker build -t img_mysql ./srcs/mysql > /dev/null 2>&1
-##./kind load docker-image img_mysql
-#kubectl apply -f ./srcs/mysql/mysql.yaml
+docker build -t img_ftps ./srcs/ftps > /dev/null 2>&1
+./kind load docker-image img_ftps
+kubectl apply -f ./srcs/ftps/ftps.yaml
+
+docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
+./kind load docker-image img_php
+kubectl apply -f ./srcs/phpmyadmin/php.yaml
+
+docker build -t img_mysql ./srcs/mysql > /dev/null 2>&1
+./kind load docker-image img_mysql
+kubectl apply -f ./srcs/mysql/mysql.yaml
+
+docker build -t img_grafana ./srcs/grafana > /dev/null 2>&1
+./kind load docker-image img_grafana
+kubectl apply -f ./srcs/wordpress/grafana.yaml
+
+docker build -t img_wordpress ./srcs/wordpress > /dev/null 2>&1
+./kind load docker-image img_wordpress
+kubectl apply -f ./srcs/wordpress/wordpress.yaml
+
 
 #>>>>>cette commande pour avoir des infos sur l'ip des services
 #kubectl get svc nginx

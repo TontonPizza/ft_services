@@ -1,6 +1,8 @@
 FROM alpine:latest
 EXPOSE 8086
 
+VOLUME /root/.influxdb
+
 RUN apk update
 RUN apk add influxdb 
 RUN apk add supervisor curl

@@ -1,49 +1,49 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin
+  name: grafana
   annotations:
-    metallb.universe.tf/address-pool: ip_php
+    metallb.universe.tf/address-pool: ip_grafana
   labels:
-    app: phpmyadmin
+    app: grafana
 spec:
   type: LoadBalancer
   selector:
-    app: phpmyadmin
+    app: grafana
     tier: frontend
   ports:
-    - name: phpmyadmin
+    - name: grafana
       protocol: TCP
-      port: 5000
+      port: 3000
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: grafana
   labels:
-    app: phpmyadmin
+    app: grafana
 spec:
   # replicas: 3
   selector:
     matchLabels:
-      app: phpmyadmin
+      app: grafana
   template:
     metadata:
       labels:
-        app: phpmyadmin
+        app: grafana
     spec:
       containers:
-        - name: phpmyadmin
-          image: img_php
+        - name: grafana
+          image: img_grafana
           imagePullPolicy: Never
           securityContext:
             privileged: true
           ports:
             - name: http
-              containerPort: 5000
+              containerPort: 3000
           livenessProbe:
             exec:
               command:
-                - pgrep "nginx""
+                - pgrep "grafana"
             initialDelaySeconds: 10
             periodSeconds: 10

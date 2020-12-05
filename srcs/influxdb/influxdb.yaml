@@ -1,26 +1,26 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
+  name: influxdb
   annotations:
-    metallb.universe.tf/address-pool: ip_mysql
+    metallb.universe.tf/address-pool: ip_influx
   labels:
-    app: mysql
+    app: influxdb
 spec:
   selector:
-    app: mysql
+    app: influxdb
   type: ClusterIP
   ports:
-    - name: mysql
-      port: 3306
+    - name: influxdb
+      port: 8086
       protocol: TCP
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: influxdb-pv-claim
   labels:
-    app: mysql
+    app: influxdb
 spec:
   accessModes:
     - ReadWriteOnce
@@ -31,41 +31,41 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: influxdb
   labels:
-    app: mysql
+    app: influxdb
 spec:
   selector:
     matchLabels:
-      app: mysql
-      tier: mysql
+      app: influxdb
+      tier: influxdb
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
-        tier: mysql
+        app: influxdb
+        tier: influxdb
     spec:
       containers:
-        - image: img_mysql
-          name: mysql
+        - image: img_influx
+          name: influxdb
           imagePullPolicy: Never
           securityContext:
             privileged: true
           livenessProbe:
             exec:
               command:
-                - pgrep "mysqld"
+                - pgrep "influxd"
             initialDelaySeconds: 15
             periodSeconds: 20
           ports:
-            - containerPort: 3306
-              name: mysql
+            - containerPort: 8086
+              name: influxdb
           volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
+            - name: influxdb-persistent-storage
+              mountPath: /root/.influxdb
       volumes:
-        - name: mysql-persistent-storage
+        - name: influxdb-persistent-storage
           persistentVolumeClaim:
-            claimName: mysql-pv-claim
+            claimName: influxdb-pv-claim

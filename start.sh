@@ -7,9 +7,6 @@ PURPLE='\033[1;35m'
 YELLOW='\033[1;33m'
 END='\033[0;0m'
 
-sudo usermod -aG docker $USER
-newgrp docker
-sudo chmod 777 /var/run/docker.sock
 
 if [ $# -eq 0 ]
 then

@@ -14,7 +14,7 @@ docker network rm ft_network
 #service nginx stop
 #service mysql stop
 
-echo "${GREEN}Creating network on ip 172.18.0.0/16${END}"
+echo "${GREEN}Creating network on ip 172.20.0.1/16${END}"
 docker network create --subnet=172.20.0.1/16 ft_network
 
 echo "${GREEN}Creating images and loading${END}"

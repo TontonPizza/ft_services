@@ -47,7 +47,8 @@ spec:
           livenessProbe:
             exec:
               command:
-                - sh
-                - liveprobe.sh
+                - bin/sh
+                - -c
+                - ./liveprobe.sh
             initialDelaySeconds: 10
             periodSeconds: 10

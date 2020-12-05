@@ -5,16 +5,11 @@ BLUE='\033[0;34m'
 PURPLE='\033[1;35'
 END='\033[0;0m'
 
-#sudo usermod -aG docker $USER
-#newgrp docker
-#sudo chmod 777 /var/run/docker.sock
-
-
-#echo "${GREEN}Installing Kind${END}"
-#GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
-#mv /home/$USER/go .
-#mv go/kind .
-#sudo rm -rf go
+echo "${GREEN}Installing Kind${END}"
+GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+mv /home/$USER/go .
+mv go/kind .
+sudo rm -rf go
 
 ./kind delete cluster
 ./kind create cluster
@@ -77,3 +72,6 @@ kubectl apply -f ./srcs/nginx/nginx.yaml
 #>>>>>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
 
 # minikube dashboard &
+
+#>>>>> check restart count
+#kubectl describe pod PODNAME | grep Restart

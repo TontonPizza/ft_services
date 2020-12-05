@@ -19,25 +19,25 @@ docker network create --subnet=172.20.0.1/16 ft_network
 
 echo "${GREEN}Creating images and loading${END}"
 
-docker build -t img_influx ./srcs/influxdb > /dev/null 2>&1
+docker build -t img_influx ./influxdb > /dev/null 2>&1
 docker run -itd --name c_influx   -p 8086:8086              --net ft_network --ip 172.20.0.8 img_influx
 
-docker build -t img_php ./srcs/phpmyadmin > /dev/null 2>&1
+docker build -t img_php ./phpmyadmin > /dev/null 2>&1
 docker run -itd --name c_php      -p 5000:5000          --net ft_network --ip 172.20.0.2 img_php
 
-docker build -t img_wp ./srcs/wordpress > /dev/null 2>&1
+docker build -t img_wp ./wordpress > /dev/null 2>&1
 docker run -itd --name c_wp       -p 5050:5050          --net ft_network --ip 172.20.0.3 img_wp
 
-docker build -t img_ftps ./srcs/ftps > /dev/null 2>&1
+docker build -t img_ftps ./ftps > /dev/null 2>&1
 docker run -itd --name c_ftps     -p 21:21      --net ft_network --ip 172.20.0.4 img_ftps
 
-docker build -t img_mysql ./srcs/mysql > /dev/null 2>&1
+docker build -t img_mysql ./mysql > /dev/null 2>&1
 docker run -itd --name c_mysql    -p 3306:3306          --net ft_network --ip 172.20.0.5 img_mysql
 
-docker build -t img_nginx ./srcs/nginx > /dev/null 2>&1
+docker build -t img_nginx ./nginx > /dev/null 2>&1
 docker run -itd --name c_nginx    -p 80:80 -p 443:443   --net ft_network --ip 172.20.0.6 img_nginx
 
-docker build -t img_grafana ./srcs/grafana > /dev/null 2>&1
+docker build -t img_grafana ./grafana > /dev/null 2>&1
 docker run -itd --name c_grafana  -p 3000:3000          --net ft_network --ip 172.20.0.7 img_grafana
 
 

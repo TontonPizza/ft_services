@@ -44,3 +44,10 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - liveprobe.sh
+            initialDelaySeconds: 10
+            periodSeconds: 10

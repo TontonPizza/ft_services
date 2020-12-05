@@ -10,6 +10,8 @@ RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386
     mv 'telegraf-1.16.0' telegraf
 COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
+COPY ./srcs/liveprobe.sh .
+
 RUN apk add --update nginx && rm -rf /var/cache/apk/*
 RUN mkdir -p /tmp/nginx/client-body
 RUN mkdir -p /run/nginx

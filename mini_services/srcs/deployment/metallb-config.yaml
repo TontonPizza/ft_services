@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 172.17.0.2-172.17.0.2
+    #   - 172.17.0.102-172.17.0.250
+    # - name: nginx-ip
+    #   protocol: layer2
+    #   addresses:
+    #   - 172.17.0.2-172.17.0.21
+    # - name: wp-ip
+    #   protocol: layer2
+    #   addresses:
+    #   - 172.17.0.22-172.17.0.41
+    # - name: pma-ip
+    #   protocol: layer2
+    #   addresses:
+    #   - 172.17.0.42-172.17.0.61
+    # - name: ftps-ip
+    #   protocol: layer2
+    #   addresses:
+    #   - 172.17.0.62-172.17.0.81
+    # - name: grafana-ip
+    #   protocol: layer2
+    #   addresses:
+    #   - 172.17.0.82-172.17.0.101

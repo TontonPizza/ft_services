@@ -43,5 +43,5 @@ spec:
 #            exec:
 #              command:
 #                - pgrep "nginx"
-            initialDelaySeconds: 10
-            periodSeconds: 10
+#            initialDelaySeconds: 10
+#            periodSeconds: 10

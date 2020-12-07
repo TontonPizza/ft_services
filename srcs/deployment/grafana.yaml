@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: grafana
   annotations:
-    metallb.universe.tf/address-pool: ip_grafana
+    metallb.universe.tf/allow-shared-ip: shared-ip
   labels:
     app: grafana
 spec:

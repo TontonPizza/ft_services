@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: influxdb
   annotations:
-    metallb.universe.tf/address-pool: ip_influx
+    metallb.universe.tf/allow-shared-ip: shared-ip
   labels:
     app: influxdb
 spec:

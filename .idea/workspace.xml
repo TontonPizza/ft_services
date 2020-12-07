@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="CMakeSettings">
-    <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
-    </configurations>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="" />
+    <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/srcs/deployment/metallb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ft_services.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ft_services.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup_docker.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup_kind.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/admin_creation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/admin_creation.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/dashboard-admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/dashboard-admin.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ftps/ftps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/ftps.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/grafana/grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/grafana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/influxdb/influxdb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/mysql.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/nginx.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/php.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/php.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/wordpress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -39,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1k3nMWXhgA6WNQMBUGQa8qMKEfv" />
+  <component name="ProjectId" id="1lKQ1wRSfIpkhKltXEvf3MnkSTd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,81 +42,31 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nag" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/learn_kind" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/deployment" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="441666ad-ff56-4565-883e-136a94b7de9b" name="Default Changelist" comment="" />
-      <created>1604938102328</created>
+      <changelist id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="" />
+      <created>1607343092236</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604938102328</updated>
-      <workItem from="1604938106510" duration="1125000" />
-      <workItem from="1606014787454" duration="1517000" />
-      <workItem from="1606905536139" duration="4781000" />
-      <workItem from="1606914858381" duration="1729000" />
-      <workItem from="1606920290444" duration="6105000" />
-      <workItem from="1606962738045" duration="237000" />
-      <workItem from="1606983185867" duration="17000" />
+      <updated>1607343092236</updated>
+      <workItem from="1607343093399" duration="337000" />
+      <workItem from="1607343550965" duration="1897000" />
+      <workItem from="1607347435114" duration="1149000" />
+      <workItem from="1607359621064" duration="1131000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="703" y="324" width="505" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606906307936">
-      <screen x="0" y="25" width="1920" height="990" />
-    </state>
-    <state x="703" y="324" width="505" height="388" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1920.990/1920.0.1920.1015@0.25.1920.990" timestamp="1606906307936" />
-    <state x="743" y="293" width="426" height="479" key="FileChooserDialogImpl" timestamp="1606983200084">
-      <screen x="0" y="25" width="1920" height="990" />
-    </state>
-    <state x="743" y="311" width="426" height="479" key="FileChooserDialogImpl/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1606016313107" />
-    <state x="743" y="293" key="FileChooserDialogImpl/0.25.1920.990@0.25.1920.990" timestamp="1606983200084" />
-    <state x="464" y="178" key="SettingsEditor" timestamp="1606905575400">
-      <screen x="0" y="25" width="1920" height="990" />
-    </state>
-    <state x="464" y="188" key="SettingsEditor/0.25.1920.1055/1920.0.1920.1080@0.25.1920.1055" timestamp="1606014831119" />
-    <state x="464" y="178" key="SettingsEditor/0.25.1920.990/1920.0.1920.1015@0.25.1920.990" timestamp="1606905575400" />
-    <state x="2406" y="218" width="1922" height="1016" maximized="true" key="dock-window-1" timestamp="1606923659461">
-      <screen x="0" y="25" width="3840" height="990" />
-    </state>
-    <state x="2406" y="218" width="1922" height="1016" maximized="true" key="dock-window-1/0.25.3840.990@0.25.3840.990" timestamp="1606923659461" />
   </component>
 </project>

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: mysql
   annotations:
-    metallb.universe.tf/address-pool: ip_mysql
+    metallb.universe.tf/allow-shared-ip: shared-ip
   labels:
     app: mysql
 spec:
@@ -53,10 +53,10 @@ spec:
           imagePullPolicy: Never
           securityContext:
             privileged: true
-          livenessProbe:
-            exec:
-              command:
-                - pgrep "mysqld"
+#          livenessProbe:
+#            exec:
+#              command:
+#                - pgrep "mysqld"
             initialDelaySeconds: 15
             periodSeconds: 20
           ports:

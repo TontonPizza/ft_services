@@ -30,41 +30,31 @@ build_images()
 install_metallb()
 {
 
-  kubectl get configmap kube-proxy -n kube-system -o yaml | \
-  sed -e "s/strictARP: false/strictARP: true/" | \
-  kubectl apply -f - -n kube-system
-  #>>>>>Deploiement du Dashboard
-
-  #>>>>>Création d'un user pour le dashboard
-
-  #>>>>>cette commande sert à obtenir un jeton de connexion pour le dashboard
-  #kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
-
-  #>>>>>Installation de MetalLB
+  kubectl get configmap kube-proxy -n kube-system -o yaml | sed -e "s/strictARP: false/strictARP: true/" | kubectl diff -f - -n kube-system
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
-  kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" # On first install only
-  #>>>>>ConfigMap
-  kubectl create -f ./srcs/metallb/metallb.yaml
+  kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
+
+  kubectl apply -f ./srcs/deployment/metallb.yaml
 }
 
 apply_yaml()
 {
     echo "${BLUE}Deploying YAML${END}"
 
-    kubectl apply -f ./srcs/influxdb/influxdb.yaml
-    kubectl apply -f ./srcs/nginx/nginx.yaml
-    kubectl apply -f ./srcs/ftps/ftps.yaml
-    kubectl apply -f ./srcs/phpmyadmin/php.yaml
-    kubectl apply -f ./srcs/mysql/mysql.yaml
-    kubectl apply -f ./srcs/grafana/grafana.yaml
-    kubectl apply -f ./srcs/wordpress/wordpress.yaml
+    kubectl apply -f ./srcs/deployment/influxdb.yaml
+    kubectl apply -f ./srcs/deployment/nginx.yaml
+    kubectl apply -f ./srcs/deployment/ftps.yaml
+    kubectl apply -f ./srcs/deployment/php.yaml
+    kubectl apply -f ./srcs/deployment/mysql.yaml
+    kubectl apply -f ./srcs/deployment/grafana.yaml
+    kubectl apply -f ./srcs/deployment/wordpress.yaml
 }
 
 get_dashboard_access()
 {
-  kubectl apply -f ./srcs/admin_creation.yaml
-  kubectl apply -f ./srcs/dashboard-admin.yaml
+  kubectl apply -f ./srcs/deployment/admin_creation.yaml
+  kubectl apply -f ./srcs/deployment/dashboard-admin.yaml
   echo "${BLUE}Dashboard Token${END}"
   kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 }
@@ -73,14 +63,34 @@ if [ $1 = "minikube" ] #########################################################
 then
 
   echo "${BLUE}STARTING the Minikube cluster${END}"
-  minikube start --driver=docker
-  eval $(minikube docker-env)
-  minikube addons enable metrics-server
+	minikube start --cpus=2 --memory 4096 --vm-driver=docker
+ 	minikube addons enable metrics-server
+  minikube addons enable default-storageclass
+  minikube addons enable storage-provisioner
+	minikube addons enable dashboard
+  eval $(minikube -p minikube docker-env)
+  minikube ip > /tmp/.minikube.ip
 
   install_metallb
   build_images
   apply_yaml
   minikube dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 elif [ $1 = "kind" ]   ##################################################################
 then
@@ -148,9 +158,4 @@ then
   exit 0
 fi ##################################################################
 
-
-
-###
-###
-###
 

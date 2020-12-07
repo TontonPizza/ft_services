@@ -18,12 +18,20 @@ fi              ################################################################
 build_images()
 {
   echo "${GREEN}Building images${END}"
+
+  echo "${PURPLE}Building Wordpress${END}"
   docker build -t img_wp          ./srcs/wordpress > /dev/null 2>&1
+  echo "${PURPLE}Building Grafana${END}"
   docker build -t img_grafana     ./srcs/grafana > /dev/null 2>&1
+  echo "${PURPLE}Building InfluxDB${END}"
   docker build -t img_influx      ./srcs/influxdb > /dev/null 2>&1
+  echo "${PURPLE}Building Nginx${END}"
   docker build -t img_nginx       ./srcs/nginx > /dev/null 2>&1
+  echo "${PURPLE}Building Ftps${END}"
   docker build -t img_ftps        ./srcs/ftps > /dev/null 2>&1
+  echo "${PURPLE}Building Phpmyadmin${END}"
   docker build -t img_php         ./srcs/phpmyadmin > /dev/null 2>&1
+  echo "${PURPLE}Building Mysql${END}"
   docker build -t img_mysql       ./srcs/mysql > /dev/null 2>&1
 }
 
@@ -37,7 +45,6 @@ install_metallb()
 
   kubectl apply -f ./srcs/deployment/metallb.yaml
 }
-
 apply_yaml()
 {
     echo "${BLUE}Deploying YAML${END}"
@@ -77,59 +84,44 @@ then
   minikube dashboard
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-elif [ $1 = "kind" ]   ##################################################################
-then
-  echo "${YELLOW}STARTING the Kind cluster${END}"
-
-  echo "${GREEN}Installing Kind${END}"
-  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
-  sudo mv /home/$USER/go .
-  sudo mv go/bin/kind .
-  sudo rm -rf go
-
-  ./kind delete cluster
-  ./kind create cluster
-
-  install_metallb
-  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
-  build_images
-
-  echo "${YELLOW}Loading images in kind${END}"
-  ./kind load docker-image img_influx
-  ./kind load docker-image img_nginx
-  ./kind load docker-image img_ftps
-  ./kind load docker-image img_php
-  ./kind load docker-image img_mysql
-  ./kind load docker-image img_grafana
-  ./kind load docker-image img_wp
-
-  apply_yaml
-
-  get_dashboard_access
-
-  echo "${YELLOW}Starting cluster at :${END}"
-  echo "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login"
-#  sudo kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode > credentials.txt
-#  kubectl -n kube-system get secret | grep deployment-controller-token- | cut -c1-33 | kubectl -n kube-system describe secret | tail -1
-
-  kubectl proxy
-
-
+#elif [ $1 = "kind" ]   ##################################################################
+#then
+#  echo "${YELLOW}STARTING the Kind cluster${END}"
+#
+#  echo "${GREEN}Installing Kind${END}"
+#  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+#  sudo mv /home/$USER/go .
+#  sudo mv go/bin/kind .
+#  sudo rm -rf go
+#
+#  ./kind delete cluster
+#  ./kind create cluster
+#
+#  install_metallb
+#  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+#  build_images
+#
+#  echo "${YELLOW}Loading images in kind${END}"
+#  ./kind load docker-image img_influx
+#  ./kind load docker-image img_nginx
+#  ./kind load docker-image img_ftps
+#  ./kind load docker-image img_php
+#  ./kind load docker-image img_mysql
+#  ./kind load docker-image img_grafana
+#  ./kind load docker-image img_wp
+#
+#  apply_yaml
+#
+#  get_dashboard_access
+#
+#  echo "${YELLOW}Starting cluster at :${END}"
+#  echo "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login"
+##  sudo kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode > credentials.txt
+##  kubectl -n kube-system get secret | grep deployment-controller-token- | cut -c1-33 | kubectl -n kube-system describe secret | tail -1
+#
+#  kubectl proxy
+#
+#
 
 elif [ $1 = "docker" ] ##################################################################
 then

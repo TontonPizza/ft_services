@@ -39,9 +39,9 @@ spec:
           ports:
             - name: http
               containerPort: 5050
-          livenessProbe:
-            exec:
-              command:
-                - pgrep "nginx"
+#          livenessProbe:
+#            exec:
+#              command:
+#                - pgrep "nginx"
             initialDelaySeconds: 10
             periodSeconds: 10

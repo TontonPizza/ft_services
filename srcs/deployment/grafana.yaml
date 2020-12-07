@@ -41,9 +41,9 @@ spec:
           ports:
             - name: http
               containerPort: 3000
-          livenessProbe:
-            exec:
-              command:
-                - pgrep "grafana"
+#          livenessProbe:
+#            exec:
+#              command:
+#                - pgrep "grafana"
             initialDelaySeconds: 10
             periodSeconds: 10

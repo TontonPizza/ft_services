@@ -53,10 +53,10 @@ spec:
           imagePullPolicy: Never
           securityContext:
             privileged: true
-          livenessProbe:
-            exec:
-              command:
-                - pgrep "influxd"
+#          livenessProbe:
+#            exec:
+#              command:
+#                - pgrep "influxd"
             initialDelaySeconds: 15
             periodSeconds: 20
           ports:

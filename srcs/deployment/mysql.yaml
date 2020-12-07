@@ -1,21 +1,4 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-  annotations:
-    metallb.universe.tf/allow-shared-ip: shared-ip
-  labels:
-    app: mysql
-spec:
-  selector:
-    app: mysql
-  type: ClusterIP
-  ports:
-    - name: mysql
-      port: 3306
-      protocol: TCP
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
@@ -26,7 +9,28 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+  - name: http
+    port: 3306
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secrets
+type: Opaque
+data:
+  root-password: c3VwZXItc2VjcmV0LXBhc3N3b3Jk
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,37 +39,32 @@ metadata:
   labels:
     app: mysql
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: mysql
-      tier: mysql
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: mysql
-        tier: mysql
     spec:
       containers:
-        - image: img_mysql
-          name: mysql
-          imagePullPolicy: Never
-          securityContext:
-            privileged: true
-#          livenessProbe:
-#            exec:
-#              command:
-#                - pgrep "mysqld"
-#            initialDelaySeconds: 15
-#            periodSeconds: 20
-          ports:
-            - containerPort: 3306
-              name: mysql
-          volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-      volumes:
+      - name: mysql
+        image: img_mysql
+        imagePullPolicy: Never
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secrets
+                key: root-password
+        ports:
+        - containerPort: 3306
+        volumeMounts:
         - name: mysql-persistent-storage
-          persistentVolumeClaim:
-            claimName: mysql-pv-claim
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim

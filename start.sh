@@ -43,7 +43,7 @@ install_metallb()
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
   kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
-  kubectl apply -f ./srcs/deployment/metallb.yaml
+  kubectl apply -f ./srcs/deployment/metallb-config.yaml
 }
 apply_yaml()
 {
@@ -149,5 +149,3 @@ then
   echo "${GREEN}Done !${END}"
   exit 0
 fi ##################################################################
-
-

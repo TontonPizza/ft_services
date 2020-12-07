@@ -1,21 +1,4 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: influxdb
-  annotations:
-    metallb.universe.tf/allow-shared-ip: shared-ip
-  labels:
-    app: influxdb
-spec:
-  selector:
-    app: influxdb
-  type: ClusterIP
-  ports:
-    - name: influxdb
-      port: 8086
-      protocol: TCP
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: influxdb-pv-claim
@@ -26,7 +9,34 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: influxdb-secrets
+type: Opaque
+stringData:
+  INFLUXDB_CONFIG_PATH: /etc/influxdb.conf
+  INFLUXDB_ADMIN_USER: admin
+  INFLUXDB_ADMIN_PASSWORD: admin
+  INFLUXDB_DB: influxdb
+  INFLUXDB_USER: root
+  INFLUXDB_USER_PASSWORD: password
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  selector:
+    app: influxdb
+  ports:
+  - name: http
+    port: 8086
+    targetPort: 8086
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,37 +45,35 @@ metadata:
   labels:
     app: influxdb
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: influxdb
-      tier: influxdb
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: influxdb
-        tier: influxdb
     spec:
       containers:
-        - image: img_influx
-          name: influxdb
-          imagePullPolicy: Never
-          securityContext:
-            privileged: true
-#          livenessProbe:
-#            exec:
-#              command:
-#                - pgrep "influxd"
-#            initialDelaySeconds: 15
-#            periodSeconds: 20
-          ports:
-            - containerPort: 8086
-              name: influxdb
-          volumeMounts:
-            - name: influxdb-persistent-storage
-              mountPath: /root/.influxdb
-      volumes:
+      - name: influxdb
+        image: img_influx
+        imagePullPolicy: Never
+        env:
+        - name: INFLUXDB_DB
+          value: influxdb
+        - name: INFLUXDB_USER
+          value: root
+        - name: INFLUXDB_PASSWORD
+          value: password
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 8086
+        volumeMounts:
         - name: influxdb-persistent-storage
-          persistentVolumeClaim:
-            claimName: influxdb-pv-claim
+          mountPath: /var/lib/influxdb
+      volumes:
+      - name: influxdb-persistent-storage
+        persistentVolumeClaim:
+          claimName: influxdb-pv-claim

@@ -1,4 +1,17 @@
 apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pma-pv-claim
+  labels:
+    app: pma
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
 kind: Service
 metadata:
   name: phpmyadmin
@@ -8,13 +21,11 @@ metadata:
     app: phpmyadmin
 spec:
   type: LoadBalancer
+  ports:
+  - port: 5000
+    name: phpmyadmin
   selector:
     app: phpmyadmin
-    tier: frontend
-  ports:
-    - name: phpmyadmin
-      protocol: TCP
-      port: 5000
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -23,7 +34,7 @@ metadata:
   labels:
     app: phpmyadmin
 spec:
-  # replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: phpmyadmin
@@ -33,17 +44,15 @@ spec:
         app: phpmyadmin
     spec:
       containers:
-        - name: phpmyadmin
-          image: img_php
-          imagePullPolicy: Never
-          securityContext:
-            privileged: true
-          ports:
-            - name: http
-              containerPort: 5000
-#          livenessProbe:
-#            exec:
-#              command:
-#                - pgrep "nginx"
-#            initialDelaySeconds: 10
-#            periodSeconds: 10
+      - name: phpmyadmin
+        image: img_php
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Never
+        env:
+          - name: PMA_HOST
+            value: mysql
+          - name: PMA_PORT
+            value: "3306"
+          - name: PMA_USER
+            value: root

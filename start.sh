@@ -69,6 +69,8 @@ get_dashboard_access()
 if [ $1 = "minikube" ] ##################################################################
 then
 
+  sudo chmod 777 /var/run/docker.sock
+
   echo "${BLUE}STARTING the Minikube cluster${END}"
 	minikube start --cpus=2 --memory 4096 --vm-driver=docker
  	minikube addons enable metrics-server
@@ -81,47 +83,48 @@ then
   install_metallb
   build_images
   apply_yaml
+  sleep 10
   minikube dashboard
 
 
-#elif [ $1 = "kind" ]   ##################################################################
-#then
-#  echo "${YELLOW}STARTING the Kind cluster${END}"
-#
-#  echo "${GREEN}Installing Kind${END}"
-#  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
-#  sudo mv /home/$USER/go .
-#  sudo mv go/bin/kind .
-#  sudo rm -rf go
-#
-#  ./kind delete cluster
-#  ./kind create cluster
-#
-#  install_metallb
-#  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
-#  build_images
-#
-#  echo "${YELLOW}Loading images in kind${END}"
-#  ./kind load docker-image img_influx
-#  ./kind load docker-image img_nginx
-#  ./kind load docker-image img_ftps
-#  ./kind load docker-image img_php
-#  ./kind load docker-image img_mysql
-#  ./kind load docker-image img_grafana
-#  ./kind load docker-image img_wp
-#
-#  apply_yaml
-#
-#  get_dashboard_access
-#
-#  echo "${YELLOW}Starting cluster at :${END}"
-#  echo "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login"
-##  sudo kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode > credentials.txt
-##  kubectl -n kube-system get secret | grep deployment-controller-token- | cut -c1-33 | kubectl -n kube-system describe secret | tail -1
-#
-#  kubectl proxy
-#
-#
+elif [ $1 = "kind" ]   ##################################################################
+then
+ echo "${YELLOW}STARTING the Kind cluster${END}"
+
+ echo "${GREEN}Installing Kind${END}"
+ GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
+ sudo mv /home/$USER/go .
+ sudo mv go/bin/kind .
+ sudo rm -rf go
+
+ ./kind delete cluster
+ ./kind create cluster
+
+ install_metallb
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+ build_images
+
+ echo "${YELLOW}Loading images in kind${END}"
+ ./kind load docker-image img_influx
+ ./kind load docker-image img_nginx
+ ./kind load docker-image img_ftps
+ ./kind load docker-image img_php
+ ./kind load docker-image img_mysql
+ ./kind load docker-image img_grafana
+ ./kind load docker-image img_wp
+
+ apply_yaml
+
+ get_dashboard_access
+
+ echo "${YELLOW}Starting cluster at :${END}"
+ echo "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login"
+#  sudo kubectl get secret -n kubernetes-dashboard $(kubectl get serviceaccount admin-user -n kubernetes-dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode > credentials.txt
+#  kubectl -n kube-system get secret | grep deployment-controller-token- | cut -c1-33 | kubectl -n kube-system describe secret | tail -1
+
+ kubectl proxy
+
+
 
 elif [ $1 = "docker" ] ##################################################################
 then

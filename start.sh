@@ -139,6 +139,8 @@ then
   echo "${GREEN}Creating network on ip 172.20.0.1/16${END}"
   docker network create --subnet=172.20.0.1/16 ft_network
 
+  build_images
+
   echo "${GREEN}Running images in the network${END}"
 
   docker run -itd --name c_php      -p 5000:5000          --net ft_network --ip 172.20.0.2 img_php

@@ -49,15 +49,14 @@ spec:
       - image: img_wp
         imagePullPolicy: Never
         name: wordpress
-        env:
-        - name: DB_NAME
-          value: wordpress
-        - name: DB_USER
-          value: wp_admin
-        - name: DB_PASSWORD
-          value: wp_admin
-        - name: DB_HOST
-          value: mysql
+        livenessProbe:
+          exec:
+            command:
+              - curl
+              - -I
+              - http://localhost:5050
+          initialDelaySeconds: 10
+          periodSeconds: 10
         ports:
         - containerPort: 5050
           name: wordpress

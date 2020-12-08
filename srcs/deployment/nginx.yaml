@@ -28,7 +28,9 @@ spec:
         livenessProbe:
           exec:
             command:
-              - pgrep nginx
+              - curl
+              - -I
+              - http://localhost:80
           initialDelaySeconds: 10
           periodSeconds: 10
 ---

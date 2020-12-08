@@ -49,3 +49,11 @@ spec:
         ports:
         - containerPort: 5000
         imagePullPolicy: Never
+        livenessProbe:
+          exec:
+            command:
+              - curl
+              - -I
+              - http://localhost:5000
+          initialDelaySeconds: 10
+          periodSeconds: 10

@@ -53,19 +53,14 @@ spec:
         imagePullPolicy: Never
         securityContext:
           privileged: true
-        env:
-        - name: DB_NAME
-          value: influxdb
-        - name: INFLUXDB_HOST
-          value: influxdb
-        - name: GF_SERVER_HTTP_PORT
-          value: "3000"
-        - name: GF_AUTH_BASIC_ENABLED
-          value: "false"
-        - name: GF_AUTH_ANONYMOUS_ENABLED
-          value: "true"
-        - name: GF_AUTH_ANONYMOUS_ORG_ROLE
-          value: Admin
+        livenessProbe:
+          exec:
+            command:
+              - curl
+              - -I
+              - http://localhost:3000
+          initialDelaySeconds: 10
+          periodSeconds: 10
         volumeMounts:
         - name: grafana-persistent-storage
           mountPath: /var/lib/grafana

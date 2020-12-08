@@ -10,7 +10,3 @@ data:
       protocol: layer2
       addresses:
       - 172.17.0.8-172.17.0.8
-    # - name: nginx-ip
-    #   protocol: layer2
-    #   addresses:
-    #   - 172.17.0.2-172.17.0.21

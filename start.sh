@@ -70,7 +70,7 @@ if [ $1 = "minikube" ] #########################################################
 then
 
   sudo chmod 777 /var/run/docker.sock
-
+  minikube delete
   echo "${BLUE}STARTING the Minikube cluster${END}"
 	minikube start --cpus=2 --memory 4096 --vm-driver=docker
  	minikube addons enable metrics-server
@@ -78,7 +78,6 @@ then
   minikube addons enable storage-provisioner
 	minikube addons enable dashboard
   eval $(minikube -p minikube docker-env)
-  minikube ip > /tmp/.minikube.ip
 
   install_metallb
   build_images
@@ -90,7 +89,8 @@ then
 elif [ $1 = "kind" ]   ##################################################################
 then
  echo "${YELLOW}STARTING the Kind cluster${END}"
-
+ sudo chmod 777 /var/run/docker.sock
+ kind delete cluster
  echo "${GREEN}Installing Kind${END}"
  GO111MODULE="on" go get sigs.k8s.io/kind@v0.9.0
  sudo mv /home/$USER/go .

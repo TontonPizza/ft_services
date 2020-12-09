@@ -1,22 +1,36 @@
-FROM alpine
+FROM alpine:3.6
 
+EXPOSE 21 22
+
+
+RUN apk update
 RUN apk upgrade
-RUN apk add openssl vsftpd
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=vo-nguye/CN=ft_services" -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+RUN apk add vsftpd openssl curl supervisor
 
-RUN mkdir -p /var/ftp
+COPY ./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-COPY srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
-COPY srcs/setup.sh /tmp/
-COPY srcs/telegraf.conf /etc/telegraf.conf
-COPY srcs/install.sh .
+RUN mkdir -p /etc/ssl-vsftpd/private
+RUN chmod 700 /etc/ssl-vsftpd/private
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj '/C=FR/ST=75/L=Paris/O=42/CN=vo-nguye' -keyout /etc/ssl-vsftpd/private/vsftpd.pem -out /etc/ssl-vsftpd/private/vsftpd.pem
 
-RUN chmod +x /tmp/setup.sh
-RUN chmod +x /install.sh
+VOLUME /var/lib/ftp
+RUN mkdir /home/ftp
+RUN mkdir /home/toto
+ADD ./srcs/ft_services.txt /var/lib/ftp/ft_services.txt
+ADD ./srcs/ft_services.txt /home/toto/
+RUN chmod 777 -R /var/lib/ftp
+RUN chmod 777 -R /home/ftp
 
-RUN sh ./install.sh
+RUN adduser toto -D
+RUN echo -e "tata\ntata" | passwd toto
+RUN chown toto /var/lib/ftp
+RUN chown toto /home/ftp
 
-EXPOSE 20 21
 
+RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
+    tar xvf telegraf.tar.gz && \
+    mv 'telegraf-1.16.0' telegraf
+COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+ADD ./srcs/supervisor.conf /etc/supervisor.conf
 
-ENTRYPOINT /etc/init.d/telegraf start ; ./tmp/setup.sh
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]

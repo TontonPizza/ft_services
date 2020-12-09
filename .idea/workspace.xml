@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/grafana.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/mysql.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/mysql.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/nginx.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/nginx.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/php.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/php.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/deployment/ftps.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/ftps.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ftps/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ftps/srcs/vsftpd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/srcs/vsftpd.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mini_services/srcs/deployment" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -55,6 +52,7 @@
       <workItem from="1607343550965" duration="1897000" />
       <workItem from="1607347435114" duration="1149000" />
       <workItem from="1607359621064" duration="2971000" />
+      <workItem from="1607534831586" duration="1213000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,7 @@ COPY ./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
 RUN mkdir -p /etc/ssl-vsftpd/private
 RUN chmod 700 /etc/ssl-vsftpd/private
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj '/C=FR/ST=75/L=Paris/O=42/CN=vo-nguye' -keyout /etc/ssl-vsftpd/private/vsftpd.pem -out /etc/ssl-vsftpd/private/vsftpd.pem
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -subj '/C=FR/ST=75/L=Paris/O=42/CN=vo-nguye' -keyout /etc/ssl-vsftpd/private/vsftpd.key -out /etc/ssl-vsftpd/private/vsftpd.pem
 
 VOLUME /var/lib/ftp
 RUN mkdir /home/ftp

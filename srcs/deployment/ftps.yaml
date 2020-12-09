@@ -21,16 +21,16 @@ spec:
       targetPort: 21
     - name: pasv-min
       protocol: TCP
-      port: 21009
-      targetPort: 21009
+      port: 30032
+      targetPort: 30032
     - name: pasv-mid
       protocol: TCP
-      port: 21010
-      targetPort: 21010
+      port: 30033
+      targetPort: 30033
     - name: pasv-max
       protocol: TCP
-      port: 21011
-      targetPort: 21011
+      port: 30034
+      targetPort: 30034
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -58,9 +58,9 @@ spec:
           name: ftp
         - containerPort: 21
           name: ftps
-        - containerPort: 21009
+        - containerPort: 30032
           name: pasv-min
-        - containerPort: 21010
+        - containerPort: 30033
           name: pasv-mid
-        - containerPort: 21011
+        - containerPort: 30034
           name: pasv-max

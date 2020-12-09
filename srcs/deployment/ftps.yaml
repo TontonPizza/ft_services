@@ -1,17 +1,4 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ftps-pv-claim
-  labels:
-    app: ftps
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
 kind: Service
 metadata:
   name: ftps
@@ -24,12 +11,26 @@ spec:
   selector:
     app: ftps
   ports:
-  -  name: ftp-data
-     port: 20
-  -  name: ftp-connection
-     port: 21
-  -  name: pftp-data-0
-     port: 21000
+    - name: ftp
+      protocol: TCP
+      port: 20
+      targetPort: 20
+    - name: ftps
+      protocol: TCP
+      port: 21
+      targetPort: 21
+    - name: pasv-min
+      protocol: TCP
+      port: 21009
+      targetPort: 21009
+    - name: pasv-mid
+      protocol: TCP
+      port: 21010
+      targetPort: 21010
+    - name: pasv-max
+      protocol: TCP
+      port: 21011
+      targetPort: 21011
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -52,18 +53,14 @@ spec:
       - name: ftps
         image: img_ftps
         imagePullPolicy: Never
-        env:
-        - name: FTPS_USER
-          value: ftps_admin
-        - name: FTPS_PASSWORD
-          value: ftps_admin
         ports:
-        - containerPort: 21
         - containerPort: 20
-        volumeMounts:
-        - name: ftps-persistent-storage
-          mountPath: /var/ftp
-      volumes:
-      - name: ftps-persistent-storage
-        persistentVolumeClaim:
-          claimName: ftps-pv-claim
+          name: ftp
+        - containerPort: 21
+          name: ftps
+        - containerPort: 21009
+          name: pasv-min
+        - containerPort: 21010
+          name: pasv-mid
+        - containerPort: 21011
+          name: pasv-max

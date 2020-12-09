@@ -80,8 +80,10 @@ then
   eval $(minikube -p minikube docker-env)
 
   install_metallb
-  build_images
-  apply_yaml
+ # build_images
+ # apply_yaml
+      docker build -t img_ftps        ./srcs/ftps > /dev/null 2>&1
+      kubectl apply -f ./srcs/deployment/ftps.yaml
   sleep 10
   minikube dashboard
 

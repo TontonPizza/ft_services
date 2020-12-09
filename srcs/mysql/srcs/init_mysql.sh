@@ -1,7 +1,7 @@
 #!bin/sh
 until mysql
 do
-  echo "NO_UP"
+  echo "NO_UP"XS
 done
 
 

@@ -3,11 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ftps/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/grafana/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/grafana/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/wordpress.sql" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/srcs/wordpress.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/readme.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/entrypoint.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wordpress.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +28,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lKQ1wRSfIpkhKltXEvf3MnkSTd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -29,16 +39,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs/wordpress" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nath" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/srcs/wordpress" />
-      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
-      <recent name="$PROJECT_DIR$/mini_services/srcs/deployment" />
+      <recent name="$PROJECT_DIR$/srcs/ftps/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/grafana/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/influxdb/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/mysql/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/nginx/srcs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
@@ -60,7 +72,8 @@
       <workItem from="1607359621064" duration="2971000" />
       <workItem from="1607534831586" duration="4643000" />
       <workItem from="1607596707947" duration="4291000" />
-      <workItem from="1607601551421" duration="2465000" />
+      <workItem from="1607601551421" duration="4727000" />
+      <workItem from="1607606678424" duration="4748000" />
     </task>
     <servers />
   </component>
@@ -77,5 +90,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

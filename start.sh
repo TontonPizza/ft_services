@@ -49,12 +49,12 @@ apply_yaml()
 {
     echo "${BLUE}Deploying YAML${END}"
 
+#    kubectl apply -f ./srcs/deployment/grafana.yaml
 #    kubectl apply -f ./srcs/deployment/influxdb.yaml
 #    kubectl apply -f ./srcs/deployment/nginx.yaml
 #    kubectl apply -f ./srcs/deployment/ftps.yaml
 #    kubectl apply -f ./srcs/deployment/php.yaml
     kubectl apply -f ./srcs/deployment/mysql.yaml
-#    kubectl apply -f ./srcs/deployment/grafana.yaml
     kubectl apply -f ./srcs/deployment/wordpress.yaml
 }
 

@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/grafana/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/grafana/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/wordpress.sql" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/srcs/wordpress.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/deployment/grafana.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/grafana.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +64,7 @@
       <workItem from="1607534831586" duration="4643000" />
       <workItem from="1607596707947" duration="4291000" />
       <workItem from="1607601551421" duration="4727000" />
-      <workItem from="1607606678424" duration="4748000" />
+      <workItem from="1607606678424" duration="7767000" />
     </task>
     <servers />
   </component>

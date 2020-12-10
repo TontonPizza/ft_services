@@ -64,3 +64,11 @@ spec:
           name: pasv-mid
         - containerPort: 30034
           name: pasv-max
+        livenessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - "pgrep vsftpd"
+          initialDelaySeconds: 5
+          periodSeconds: 5

@@ -11,6 +11,7 @@ RUN tar -xf wordpress.tar.gz
 RUN mv wordpress/* /www
 RUN rm -rf /var/cache/apk/*
 
+
 COPY ./srcs/wp-config.php /www/wp-config.php
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
 

@@ -1,17 +1,4 @@
 apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: grafana-pv-claim
-  labels:
-    app: grafana
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
 kind: Service
 metadata:
   name: grafana
@@ -58,13 +45,6 @@ spec:
             command:
               - curl
               - -I
-              - http://localhost:3000
-          initialDelaySeconds: 10
-          periodSeconds: 10
-        volumeMounts:
-        - name: grafana-persistent-storage
-          mountPath: /var/lib/grafana
-      volumes:
-      - name: grafana-persistent-storage
-        persistentVolumeClaim:
-          claimName: grafana-pv-claim
+              - http://localhost:3005
+          initialDelaySeconds: 5
+          periodSeconds: 5

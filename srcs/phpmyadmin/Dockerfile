@@ -9,7 +9,6 @@ RUN apk add php7-fpm php-mbstring php7-openssl php7-json php7-dom php7-zip php7-
 			php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
 RUN  rm /etc/nginx/conf.d/default.conf
-
 COPY srcs/nginx.conf /etc/nginx/nginx.conf
 COPY srcs/www.conf /etc/php7/php-fpm.d/www.conf
 COPY srcs/supervisor.conf /etc/supervisor/conf.d/supervisord.conf

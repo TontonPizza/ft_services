@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/init_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/srcs/init_mysql.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/entrypoint.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wordpress.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,15 +29,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs/wordpress" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/wordpress" />
+      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
       <recent name="$PROJECT_DIR$/mini_services/srcs/deployment" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
       <recent name="$PROJECT_DIR$/mini_services/srcs" />
       <recent name="$PROJECT_DIR$/srcs/deployment" />
     </key>
@@ -57,10 +60,22 @@
       <workItem from="1607359621064" duration="2971000" />
       <workItem from="1607534831586" duration="4643000" />
       <workItem from="1607596707947" duration="4291000" />
+      <workItem from="1607601551421" duration="2465000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

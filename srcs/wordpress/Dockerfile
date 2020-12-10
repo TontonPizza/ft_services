@@ -1,30 +1,42 @@
-FROM alpine
+FROM alpine:3.12
+EXPOSE 5050
 
-RUN apk update && \
-    apk upgrade && \
-	apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli \
-            php7-zlib php7-curl php7-mbstring php7-json php7-session curl \
-            php7-fpm nginx openrc && \
-    curl 'https://wordpress.org/wordpress-5.5.1.tar.gz' > wordpress.tar.gz
+RUN apk update
+RUN apk --no-cache add nginx supervisor curl openrc
 
-RUN tar xf wordpress.tar.gz && \
-    rm -rf /var/www && \
-    mv  wordpress /var/www
+RUN apk add php7-fpm php-mbstring php7-openssl php7-json php7-dom php7-zip php7-mysqli \
+			php7-curl php7-session php7-opcache php7-gd php7-zlib  php7-common \
+			php7-iconv php7-xml php7-imap php7-cgi fcgi \
+			php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
-COPY srcs/nginx.conf /etc/nginx/conf.d
-
-RUN mkdir -p /run/nginx && \
-    rm /etc/nginx/conf.d/default.conf
-
-COPY srcs/wp-config.php /var/www/wp-config.php
-COPY srcs/entrypoint.sh /entrypoint.sh
-RUN chmod +x entrypoint.sh
+RUN  rm /etc/nginx/conf.d/default.conf
+COPY srcs/nginx.conf /etc/nginx/nginx.conf
+COPY srcs/www.conf /etc/php7/php-fpm.d/www.conf
+COPY srcs/supervisor.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \
     tar xvf telegraf.tar.gz && \
     mv 'telegraf-1.16.0' telegraf
 COPY srcs/telegraf.conf /etc/telegraf/telegraf.conf
+ADD ./srcs/supervisor.conf /etc/supervisor.conf
 
-EXPOSE 5050
 
-CMD "/entrypoint.sh"
+RUN mkdir -p /var/www/html
+RUN mkdir -p /usr/share/wordpress/tmp
+RUN chmod 777 -R /usr/share/wordpress
+
+RUN chown -R nobody.nobody /var/www/html && \
+  chown -R nobody.nobody /run && \
+  chown -R nobody.nobody /var/lib/nginx && \
+  chown -R nobody.nobody /var/log/nginx
+
+COPY ./srcs/wordpress.tar.gz  wordpress.tar.gz
+RUN tar xf wordpress.tar.gz
+RUN mv wordpress /var/www/html/wordpress
+COPY ./srcs/wp-config.php /var/www/html/wordpress
+
+USER nobody
+COPY --chown=nobody srcs/ /var/www/html/
+
+
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]

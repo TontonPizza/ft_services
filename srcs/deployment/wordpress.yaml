@@ -39,3 +39,11 @@ spec:
         ports:
         - containerPort: 5050
           name: wordpress
+        livenessProbe:
+          exec:
+            command:
+              - curl
+              - -I
+              - http://localhost:5050
+          initialDelaySeconds: 10
+          periodSeconds: 10

@@ -45,6 +45,6 @@ spec:
             command:
               - curl
               - -I
-              - http://localhost:3005
+              - http://localhost:3000
           initialDelaySeconds: 5
           periodSeconds: 5

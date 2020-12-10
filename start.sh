@@ -8,6 +8,7 @@ YELLOW='\033[1;33m'
 END='\033[0;0m'
 
 
+
 if [ $# -eq 0 ] ##################################################################
 then
   echo "${RED}PLEASE PROVIDE AN ENGINE : ${END}"
@@ -20,19 +21,19 @@ build_images()
   echo "${GREEN}Building images${END}"
 
   echo "${PURPLE}Building Wordpress${END}"
-  docker build -t img_wp          ./srcs/wordpress > /dev/null 2>&1
-  echo "${PURPLE}Building Grafana${END}"
-  docker build -t img_grafana     ./srcs/grafana > /dev/null 2>&1
-  echo "${PURPLE}Building InfluxDB${END}"
-  docker build -t img_influx      ./srcs/influxdb > /dev/null 2>&1
-  echo "${PURPLE}Building Nginx${END}"
-  docker build -t img_nginx       ./srcs/nginx > /dev/null 2>&1
-  echo "${PURPLE}Building Ftps${END}"
-  docker build -t img_ftps        ./srcs/ftps > /dev/null 2>&1
-  echo "${PURPLE}Building Phpmyadmin${END}"
-  docker build -t img_php         ./srcs/phpmyadmin > /dev/null 2>&1
+  docker build -t img_wp          ./srcs/wordpress
+#  echo "${PURPLE}Building Grafana${END}"
+#  docker build -t img_grafana     ./srcs/grafana
+#  echo "${PURPLE}Building InfluxDB${END}"
+#  docker build -t img_influx      ./srcs/influxdb
+#  echo "${PURPLE}Building Nginx${END}"
+#  docker build -t img_nginx       ./srcs/nginx
+#  echo "${PURPLE}Building Ftps${END}"
+#  docker build -t img_ftps        ./srcs/ftps
+#  echo "${PURPLE}Building Phpmyadmin${END}"
+#  docker build -t img_php         ./srcs/phpmyadmin
   echo "${PURPLE}Building Mysql${END}"
-  docker build -t img_mysql       ./srcs/mysql > /dev/null 2>&1
+  docker build -t img_mysql       ./srcs/mysql
 }
 
 install_metallb()
@@ -42,19 +43,18 @@ install_metallb()
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
   kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
   kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
-
   kubectl apply -f ./srcs/deployment/metallb-config.yaml
 }
 apply_yaml()
 {
     echo "${BLUE}Deploying YAML${END}"
 
-    kubectl apply -f ./srcs/deployment/influxdb.yaml
-    kubectl apply -f ./srcs/deployment/nginx.yaml
-    kubectl apply -f ./srcs/deployment/ftps.yaml
-    kubectl apply -f ./srcs/deployment/php.yaml
+#    kubectl apply -f ./srcs/deployment/influxdb.yaml
+#    kubectl apply -f ./srcs/deployment/nginx.yaml
+#    kubectl apply -f ./srcs/deployment/ftps.yaml
+#    kubectl apply -f ./srcs/deployment/php.yaml
     kubectl apply -f ./srcs/deployment/mysql.yaml
-    kubectl apply -f ./srcs/deployment/grafana.yaml
+#    kubectl apply -f ./srcs/deployment/grafana.yaml
     kubectl apply -f ./srcs/deployment/wordpress.yaml
 }
 

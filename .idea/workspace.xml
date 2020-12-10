@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/deployment/mysql.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/mysql.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/srcs/telegraf.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/srcs/telegraf.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/srcs/vsftpd.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/srcs/vsftpd.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/wordpress.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/ftps/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/ftps/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/init_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/srcs/init_mysql.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/nginx_conf/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/srcs/wp-config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +56,7 @@
       <workItem from="1607347435114" duration="1149000" />
       <workItem from="1607359621064" duration="2971000" />
       <workItem from="1607534831586" duration="4643000" />
+      <workItem from="1607596707947" duration="4291000" />
     </task>
     <servers />
   </component>

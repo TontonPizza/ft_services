@@ -21,10 +21,10 @@ ADD ./srcs/ft_services.txt /home/toto/
 RUN chmod 777 -R /var/lib/ftp
 RUN chmod 777 -R /home/ftp
 
-RUN adduser toto -D
-RUN echo -e "tata\ntata" | passwd toto
-RUN chown toto /var/lib/ftp
-RUN chown toto /home/ftp
+RUN adduser admin -D
+RUN echo -e "admin\nadmin" | passwd admin
+RUN chown admin /var/lib/ftp
+RUN chown admin /home/ftp
 
 
 RUN curl 'https://dl.influxdata.com/telegraf/releases/telegraf-1.16.0_linux_i386.tar.gz' > telegraf.tar.gz && \

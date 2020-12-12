@@ -1,7 +1,7 @@
 FROM alpine:latest
 EXPOSE 8086
 
-VOLUME /root/.influxdb
+VOLUME /var/lib/influxdb/data
 
 RUN apk update
 RUN apk add influxdb 

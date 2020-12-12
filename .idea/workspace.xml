@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b86c25da-7779-4fdc-935f-12f18c4bc1d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/last_modif.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/ftps/srcs/liveprobe.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/grafana/srcs/liveprobe.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/influxdb/srcs/liveprobe.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/liveprobe.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/liveprobe.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/liveprobe.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/deployment/influxdb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/influxdb/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/influxdb/liveness.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -35,7 +38,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nath" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -70,6 +74,7 @@
       <workItem from="1607596707947" duration="4291000" />
       <workItem from="1607601551421" duration="4727000" />
       <workItem from="1607606678424" duration="10080000" />
+      <workItem from="1607779402722" duration="406000" />
     </task>
     <servers />
   </component>

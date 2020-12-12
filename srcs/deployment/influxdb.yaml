@@ -53,7 +53,7 @@ spec:
         - containerPort: 8086
         volumeMounts:
         - name: influxdb-persistent-storage
-          mountPath: /var/lib/influxdb
+          mountPath: /var/lib/influxdb/data
         livenessProbe:
           exec:
             command:

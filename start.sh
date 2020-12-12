@@ -12,19 +12,19 @@ build_images()
   echo "${GREEN}Building images${END}"
 
   echo "${PURPLE}Building Wordpress${END}"
-#  docker build -t img_wp          ./srcs/wordpress
+   docker build -t img_wp          ./srcs/wordpress
   echo "${PURPLE}Building Grafana${END}"
   docker build -t img_grafana     ./srcs/grafana
   echo "${PURPLE}Building InfluxDB${END}"
   docker build -t img_influx      ./srcs/influxdb
-#  echo "${PURPLE}Building Nginx${END}"
-#  docker build -t img_nginx       ./srcs/nginx
-#  echo "${PURPLE}Building Ftps${END}"
-#  docker build -t img_ftps        ./srcs/ftps
-#  echo "${PURPLE}Building Phpmyadmin${END}"
-#  docker build -t img_php         ./srcs/phpmyadmin
-#  echo "${PURPLE}Building Mysql${END}"
-#  docker build -t img_mysql       ./srcs/mysql
+   echo "${PURPLE}Building Nginx${END}"
+   docker build -t img_nginx       ./srcs/nginx
+   echo "${PURPLE}Building Ftps${END}"
+   docker build -t img_ftps        ./srcs/ftps
+   echo "${PURPLE}Building Phpmyadmin${END}"
+   docker build -t img_php         ./srcs/phpmyadmin
+   echo "${PURPLE}Building Mysql${END}"
+   docker build -t img_mysql       ./srcs/mysql
 }
 
 install_metallb()
@@ -39,14 +39,14 @@ install_metallb()
 apply_yaml()
 {
     echo "${BLUE}Deploying YAML${END}"
-
+    kubectl apply -f ./srcs/deployment/volumes.yaml
     kubectl apply -f ./srcs/deployment/grafana.yaml
     kubectl apply -f ./srcs/deployment/influxdb.yaml
-#    kubectl apply -f ./srcs/deployment/nginx.yaml
-#    kubectl apply -f ./srcs/deployment/ftps.yaml
-#    kubectl apply -f ./srcs/deployment/php.yaml
-#    kubectl apply -f ./srcs/deployment/mysql.yaml
-#    kubectl apply -f ./srcs/deployment/wordpress.yaml
+     kubectl apply -f ./srcs/deployment/nginx.yaml
+     kubectl apply -f ./srcs/deployment/ftps.yaml
+     kubectl apply -f ./srcs/deployment/php.yaml
+     kubectl apply -f ./srcs/deployment/mysql.yaml
+     kubectl apply -f ./srcs/deployment/wordpress.yaml
 }
 get_dashboard_access()
 {

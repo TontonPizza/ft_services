@@ -49,7 +49,7 @@ spec:
         ports:
         - containerPort: 3306
         volumeMounts:
-        - name: mysql-persistent-storage
+        - name: mysql-pv-storage
           mountPath: /var/lib/mysql
         livenessProbe:
           exec:
@@ -58,6 +58,6 @@ spec:
               - -c
               - 'echo "show databases" | mysql | grep wordpress'
       volumes:
-      - name: mysql-persistent-storage
+      - name: mysql-pv-storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim

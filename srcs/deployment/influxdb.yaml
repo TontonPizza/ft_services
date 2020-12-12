@@ -52,8 +52,8 @@ spec:
         ports:
         - containerPort: 8086
         volumeMounts:
-        - name: influxdb-persistent-storage
-          mountPath: /var/lib/influxdb/data
+        - name: influxdb-pv-storage
+          mountPath: /root/.influxdb/
         livenessProbe:
           exec:
             command:
@@ -63,6 +63,6 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 5
       volumes:
-      - name: influxdb-persistent-storage
+      - name: influxdb-pv-storage
         persistentVolumeClaim:
           claimName: influxdb-pv-claim

@@ -4,6 +4,10 @@
 
 #### Ce sujet a pour but de virtualiser un réseau en utilisant Kubernetes.
 
+![schema](https://github.com/TontonPizza/42_ft_Services/blob/master/schema.png)
+
+
+
 
 Most valuable resources :
 

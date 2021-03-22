@@ -1,7 +1,8 @@
-### ft_services 
-#### validé le 11/12/2020
+![Final Grade](https://github.com/TontonPizza/42_ft_Services/blob/master/100.png)
 
+# ft_services 
 
+#### Ce sujet a pour but de virtualiser un réseau en utilisant Kubernetes.
 
 
 Most valuable resources :
